@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Serialization demo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridstack@latest/dist/gridstack.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gridstack@latest/dist/gridstack-extra.css" />
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.6.9/shim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gridstack@latest/dist/gridstack.all.js"></script>
+    <link rel="stylesheet" href="./assets/css/fontawsome/css/all.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+
+
+    <div class="row d-print-none">
+        <div class="col-lg-12 text-white text-center">
+            <h1>Dungeonslayer Charsheet Generator</h1>
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-6 dungeonslayer-content" style="padding-bottom: 25px;">
+            <div style="border: 1px solid white">
+                <div class="grid-stack grid-stack-20" id="advanced-grid" data-gs-column="20" data-gs-max-row="28"
+                    data-gs-animate="yes">
+                    <div class="grid-stack-item " data-gs-x="0" data-gs-y="0" data-gs-width="2" data-gs-height="28"
+                        data-gs-no-move="yes" data-gs-no-resize="yes" data-gs-locked="yes">
+                        <div class="grid-stack-item-content  bg-white">
+                            <img src="./assets/img/lifebar.png" />
+
+                        </div>
+                    </div>
+                    <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide ui-draggable-disabled ui-resizable-disabled"
+                        data-gs-x="2" data-gs-y=0 data-gs-width="18" data-gs-height="11" data-gs-no-move="true"
+                        data-gs-no-resize="true" data-gs-locked="true">
+                        <div class="grid-stack-item-content  bg-white standardd-values">
+                            <img src="./assets/img/values.png" />
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 d-none d-md-block" style="border-right: 1px dashed black;">
+            <div class="row top-items-edit  d-print-none ">
+                <div class="col-md-12 d-flex">
+                    <div id="trash" class="text-center text-white top-button">
+                        <div>
+                            <span>Drop here to remove widget!</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 d-flex">
+                    <div class="text-center text-white  grid-stack-item top-button">
+                        <a id="add_item" href="#">
+                            Neues Element hinzufügen
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-2 d-flex">
+                    <div class="text-center newWidget grid-stack-item ">
+                        <div class=" grid-stack-item-content">
+                            <div class="added_item">
+                                <div class="item_image"></div>
+                                <div class="item_title"></div>
+                                <div class="item_text"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-8 d-flex">
+                    <div class="text-center newWidget grid-stack-item ">
+                        <div class=" grid-stack-item-content">
+                            <div class="added_table">
+                                <div id="table" class="table-editable">
+                                            
+
+                                    <table class="table table-bordered table-responsive-md text-left">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-left" contenteditable="true">Waffen</th>
+                                                <th class="text-left" contenteditable="true">WB</th>
+                                                <th class="text-left" contenteditable="true">Gesamt</th>
+                                                <th class="text-left" contenteditable="true">INI</th>
+                                                <th class="text-left" contenteditable="true">GA</th>
+                                                <th class="text-left" contenteditable="true">Besonders</th>
+                                                <th class="text-left remove_in_element">Aktionen</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="pt-3-half" contenteditable="true">Waffenlos</td>
+                                                <td class="pt-3-half" contenteditable="true">+0</td>
+                                                <td class="pt-3-half" contenteditable="true"></td>
+                                                <td class="pt-3-half" contenteditable="true"></td>
+                                                <td class="pt-3-half" contenteditable="true">+5</td>
+                                                <td class="pt-3-half" contenteditable="true"></td>
+                                                <td class="pt-3-half remove_in_element">
+                                                    <span class="table-remove"><i
+                                                            class="fas fa-minus-square"></i></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="pt-3-half" contenteditable="true"></td>
+                                                <td class="pt-3-half" contenteditable="true"></td>
+                                                <td class="pt-3-half" contenteditable="true"></td>
+                                                <td class="pt-3-half" contenteditable="true"></td>
+                                                <td class="pt-3-half" contenteditable="true"></td>
+                                                <td class="pt-3-half" contenteditable="true"></td>
+                                                <td class="pt-3-half remove_in_element">
+                                                    <span class="table-remove"><i
+                                                            class="fas fa-minus-square"></i></span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                        <span class="table-add "><a href="#!" class="text-success"><i
+                            class="fas fa-plus-square" aria-hidden="true"></i> Reihe hinzufügen</a></span><br />
+                        <span class="table-add-column"><a href="#!" class="text-success"><i
+                                class="fas fa-plus-square" aria-hidden="true"></i> Spalte hinzufügen</a></span><br />
+                                
+                        <span class="table-remove-column"><a href="#!" class="text-success"><i
+                            class="fas fa-minus-square" aria-hidden="true"></i> Spalte entfernen</a></span><br />
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div id="dialog" class="dialog">
+        <div class="text-right">
+            <a href="#" class="close_dialog"><i class="fas fa-times pull-right"></i></a>
+        </div>
+
+        <div class="text-center">
+            <h2>Elemente hinzufügen</h2>
+        </div>
+        <div class="row text-center">
+            <label class="col-sm-1">
+                <input type="radio" name="icon" value="melee-attack.png">
+                <img src="./assets/img/melee-attack.png">
+            </label>
+            <label class="col-sm-1">
+                <input type="radio" name="icon" value="initiative.png">
+                <img src="./assets/img/initiative.png">
+            </label>
+            <label class="col-sm-1">
+                <input type="radio" name="icon" value="defense.png">
+                <img src="./assets/img/defense.png">
+            </label>
+            <label class="col-sm-1">
+                <input type="radio" name="icon" value="hit-points.png">
+                <img src="./assets/img/hit-points.png">
+            </label>
+        </div>
+        <label class="width-100" for="new_item_title">Überschrift </label>
+        <input type='text' id="new_item_title" placeholder="text" /><br />
+        <label class="width-100" for="new_item_text">Text </label>
+        <input type='text' id="new_item_text" placeholder="text" /><br />
+        <a href="#" class="btn" id="change_image">Daten übernehmen</a>
+    </div>
+
+    <div id="dialog_table" class="dialog">
+        <div class="text-right">
+            <a href="#" class="close_dialog"><i class="fas fa-times pull-right"></i></a>
+        </div>
+        <div class="text-center">
+            <h2>Tabelle hinzufügen</h2>
+        </div>
+        <label class="width-100" for="new_table_rows">Reihen </label>
+        <input type='number' id="new_table_rows" placeholder="1" /><br />
+        <label class="width-100" for="new_table_columns">Spalten </label>
+        <input type='number' id="new_table_columns" placeholder="Spalten" /><br />
+        <div id="new_table_columns_title">
+
+        </div>
+        <a href="#" class="btn" id="change_table">Daten übernehmen</a>
+    </div>
+
+
+
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
