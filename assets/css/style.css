@@ -1,14 +1,8 @@
-@font-face {
-    font-family: Woodstamp;
-    src: url(../fonts/Woodstamp.otf)
-}
-
-.woodstamp {
-    font-family: Woodstamp
-}
-
-body {
-    max-width: 90%;
+/**
+ * BASIC STUFF
+ **/
+  body {
+    width: 90%;
     margin-left: 5%;
     background-color: #000000;
     background-image: url(http://www.dungeonslayers.net/wp-content/uploads/2014/01/caerabg.gif);
@@ -16,59 +10,311 @@ body {
     background-size: auto;
     background-repeat: repeat-x;
     background-attachment: fixed;
-    font-size: 16px;
-}
-.item_title,
-h1,
-h2,
-h3 {
-    font-family: Woodstamp;
-}
-
-h1 {
-    font-size: 70px;
-}
-
-.item_title{
-    font-size: 22px;
-}
-img {
+    width:  1400px;
+    margin: 0px auto;
+  }
+  img {
     max-width: 100%;
     height: auto;
-}
+  }
+  .width-100{
+    width: 100px; 
+  }
+  .btn {
+    background-color: #8cad45;
+    border-radius: 0px;
+    text-align: left;
+    color: white;
+    padding: 10px 15px;
+    padding: 15px; 
+    margin-bottom: 15px; 
+  }
+  .btn.full_width{
+    width: 100%; 
+  }
+  .btn:hover {
+    background-color: #557622;
+    text-decoration: none;
+  }
+  .back_gray{
+    background-color: #d0d4d7; 
+  }
 
-.grid-stack {
-    border: 1px dashed black;
-}
 
-.dungeonslayer-content .grid-stack-item-content {
-    border: 1px solid black;
-    overflow: hidden !important;
-}
 
-#trash {
-    background-color: #bf4216;
-}
+/**
+ * FONTS
+ **/
+  @font-face {
+    font-family: Woodstamp;
+    src: url(../fonts/Woodstamp.otf)
+  }
 
-.newWidget .grid-stack-item-content {
+  @font-face {
+    font-family: Alegreya;
+    src: url(../fonts/Alegreya-Regular.ttf)
+  }
+
+  body{
+    font-size: 16px;
+    font-family: Alegreya;
+  }
+  .woodstamp, 
+  .item_title,
+  h1,
+  h2,
+  h4,
+  h3 {
+    font-family: Woodstamp;
+  }
+  h1 {
+    font-size: 70px;
+  }
+  h2 {
+    border-bottom: 1px solid black;
+    margin-bottom: 30px; 
+  }
+  h3.text-white {
+    margin-top: 50px;
+    border-bottom: 3px double white;
+  }
+  h4 {
+    line-height: 17px;
+  }
+  a.text-success i {
+    color: #8cad45!important;
+  }
+  a.text-success {
+    color: white !important;
+  }
+  i.fas.fa-minus-square {
+    color: #bf4216 !important;
+  }
+  .header_edit{
+    font-size: 14px; 
+  }
+  .item_text,
+  .table-bordered td{
+    font-size: 10px;
+  }
+  .table-bordered td.woodstamp{
+    font-size: 13px;
+    line-height: 13px;
+  }
+  h4, 
+  .item_title, 
+  .table thead th{
+    font-size: 17px; 
+  }
+  
+  .strong{
+    font-weight: bold; 
+  }
+  small {
+    font-size: 6px;
+    line-height: 7px;
+    display: block;
+    margin: 2px 0px;
+  }
+  @supports (-webkit-text-stroke: 2px black) {
+    .outline {
+      -webkit-text-stroke: 2px black;
+      -webkit-text-fill-color: white;
+    }
+  }
+/**
+ * GRIDSTACK STUFF
+ **/
+  .grid-stack {
     background-color: white;
-}
-
-.grid-stack>.grid-stack-item>.grid-stack-item-content {
+  }
+  .dungeonslayer-content .grid-stack-item-content {
+    overflow: hidden !important;
+    -webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+  }
+  .newWidget .grid-stack-item-content {
+    background-color: white;
+  }
+  .grid-stack>.grid-stack-item>.grid-stack-item-content {
     left: 0px;
     right: 0px;
     bottom: 0px;
     top: 0px;
-}
+  }
+  .dungeonslayer-content .remove_in_element{
+    display: none!important; 
+  }
+  .grid-stack-item:not(.no_padding) .grid-stack-item-content{
+    padding: 5px; 
+  
+  }
+  .grid-stack .grid-stack-placeholder>.placeholder-content{
+    left: 0px !important; 
+  }  
+  .dungeonslayer-content .item_image{
+    padding: 0px 10px; 
+  }
+  body .grid-stack>.grid-stack-item{
+    min-width: 2.5% !important; 
+  }
 
-th,td {
-  height: 20px;
-  border: 1px solid black;
-}
-table{
-  width: 100%; 
-}
-.dialog {
+
+
+/**
+ * PDF HEADER
+ **/  
+  .input_field:first-child {
+    margin-top: 9px; 
+  }
+  .input_field {
+    border: 2px solid black;
+    padding: 0px 5px; 
+    margin:0px 0px 15px 0px;
+  }
+  .input_field h4{
+    margin-bottom: 0px; 
+  }
+  .header_logo {
+    margin-bottom: 10px;
+    margin-left: -5px;
+    margin-right: -5px;
+  }
+  .details.input_field > .detail  {
+    width:20%; 
+    float: left;
+  }
+  .details.input_field > .detail:not(:last-child)  {
+    border-right: 2px solid black; 
+  }
+  .details.input_field{
+    padding: 0px; 
+    min-height: 42px;
+    display: flex;
+  }
+  .detail_head{
+    padding-right: 5px;
+  }
+  .small_stuff .header_edit.text-center {
+    position: absolute;
+    top: 9px;
+    width: 20px;
+    left: 2px;
+  }
+
+  .small_stuff {
+      position: relative;
+  }
+  .attrib {
+    width: 50%;
+    float: left;
+    font-size: 36px;
+    line-height: 45px;
+    font-family: Woodstamp;
+  }
+  .attrib_row {
+    margin-bottom: 10px;
+  }
+  .attrib_edit {
+    width: 50%;
+    float: left;
+    font-size: 30px;
+    border: 2px solid black;
+    text-align: center;
+  }
+  .small_stuff .info {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+  }
+  .dungeonslayer-content .skill_edit{
+    top: 11px; 
+  }
+  .skill_edit {
+    position: absolute;
+    width: 50%;
+    margin-left: 25%; 
+    text-align: center;
+    top: 11px;
+  }
+  .skill_item {
+    position: relative;
+  }
+
+  .skill_edit {
+    top: 28px;
+  }
+
+/**
+ * TABLE STUFF
+ **/
+  .table-add-container{
+    margin-bottom: 10px; 
+  }
+  th,td {
+    height: 20px;
+    border: 1px solid black;
+  }
+  table{
+    width: 100%; 
+  }
+  .table-bordered {
+    border: 2px solid black !important;
+  }
+  
+  th.remove_in_element {
+    width: 50px;
+  }
+  td > img {
+    height: 13px;
+  }
+  .table thead th {
+    background-color: #d0d4d7;
+    border-bottom: 2px solid black;
+    border: 2px solid black;
+    padding: 0px 5px;
+    text-align: left !important;
+    font-family: Woodstamp;
+  }
+  .table-bordered td {
+    border: 2px solid black;
+    text-align: left;
+    padding: 0px 5px;
+    height: auto;
+  }
+ 
+
+
+/**
+ * TRASH AREA
+ **/
+  #trash {
+    background-color: #bf4216;
+    min-height: 180px;
+    min-width: 100%;
+    padding-top: 50px;
+  }
+  #trash span {
+    font-family: Woodstamp;
+    font-size: 25px;
+  }
+
+  #trash i {
+    font-size: 40px;
+    display: block;
+  }
+
+  #trash > div {
+    padding-top: 10px;
+  }
+
+
+
+/**
+ * DIALOG 
+ **/
+  .dialog {
     position: absolute;
     background-color: white;
     padding: 30px;
@@ -79,534 +325,68 @@ table{
     margin-left: auto; 
     margin-right: auto; 
     min-width: 700px;
-}
-.dialog .row,
-.dialog input {
+    z-index: 2;
+  }
+  .dialog .row,
+  .dialog input {
   margin-bottom: 15px; 
-}
-
-.dialog [type=radio] { 
+  }
+  .dialog [type=radio] { 
     position: absolute;
     opacity: 0;
     width: 0;
     height: 0;
   }
-  
   .dialog [type=radio] + img {
     cursor: pointer;
   }
-  .width-100{
-    width: 100px; 
-  }
-  
-  /* CHECKED STYLES */
   .dialog [type=radio]:checked + img {
     outline: 2px solid #8cad45;
   }
-.item_image{
+  div#black_overlay {
+    position: fixed;
+    width: 100%;
+    background-color: rgb(0 0 0 / 70%);
+    top: 0px;
+    height: 100%;
+    z-index: 1;
+  }
+  a.close_dialog {
+    color: black;
+  }
+
+  a.close_dialog:hover {
+      opacity: 0.7;
+  }
+
+/**
+ * SKILLS  
+ **/
+  .item_image{
     width: 80px; 
     max-width: 100%; 
     margin: 0px auto;
     text-align: center; ;
-}
-.top-button:hover {
-  background-color: #557622;
-}
-.top-button a:hover{
-  text-decoration: none;
-}
-.top-button a{
-    color: white; 
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-}
-.top-button{
-    padding: 15px; 
-    margin-bottom: 15px; 
-    background-color:#8cad45;
-    color: white;  
-}
-.top-items-edit .newWidget {
+  }
+  .dungeonslayer-content .item_text,
+  .dungeonslayer-content .item_title{
+    text-align:center;
+  }
+
+
+
+/**
+ * OTHER STUFF  
+ **/
+  .save_content{
+    display: inline-block; 
+    margin-right: 40px; 
+  }
+  .top-items-edit .newWidget {
     width:100%;
-}
-.dungeonslayer-content .added_item{
-    padding: 10px; 
-}
-.btn {
-  background-color: #8cad45;
-  border-radius: 0px;
-  text-align: right;
-  float: right;
-  color: white;
-  padding: 10px 15px;
-}
+  }
 
-.table-bordered {
-  border: 1px solid black !important;
-}
 
-.table thead th {
-  background-color: #d0d4d7;
-  border-bottom: 1px solid black;
-  border: 1px solid black;
-  padding: 0px 5px;
-  text-align: left !important;
-  font-family: Woodstamp;
-  font-size: 22px;
-}
 
-.table-bordered td {
-  border: 1px solid black;
-  text-align: left;
-  padding: 5px;
-}
-.dungeonslayer-content .remove_in_element{
-  display: none!important; 
-}
-@media print {
-    .dungeonslayer-content .grid-stack-item-content{
-        border: 0px solid !important; 
-    }
-    .grid-stack {
-        width: 100%;
-        height: 100vh !important;
-        page-break-after: always
-    }
-    .item_image{
-        max-width: 100%;
-        width: 100%; 
-    }
-    .row {
-        padding: none;
-        margin-left: 0px !important;
-        margin-right: 0px !important;
-    }
 
-    .col-md-6 {
-        max-width: 100%;
-        padding: 0px !important;
-        flex: 0 0 100%;
-    }
 
-    body {
-        max-width: 100%;
-        margin-left: 0px;
-    }
-    .grid-stack > .grid-stack-item[data-gs-y="1"] {
-        top: 3.5714285714vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="2"] {
-        top: 7.1428571429vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="3"] {
-        top: 10.7142857143vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="4"] {
-        top: 14.2857142857vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="5"] {
-        top: 17.8571428571vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="6"] {
-        top: 21.4285714286vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="7"] {
-        top: 25vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="8"] {
-        top: 28.5714285714vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="9"] {
-        top: 32.1428571429vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="10"] {
-        top: 35.7142857143vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="11"] {
-        top: 39.2857142857vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="12"] {
-        top: 42.8571428571vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="13"] {
-        top: 46.4285714286vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="14"] {
-        top: 50vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="15"] {
-        top: 53.5714285714vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="16"] {
-        top: 57.1428571429vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="17"] {
-        top: 60.7142857143vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="18"] {
-        top: 64.2857142857vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="19"] {
-        top: 67.8571428571vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="20"] {
-        top: 71.4285714286vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="21"] {
-        top: 75vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="22"] {
-        top: 78.5714285714vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="23"] {
-        top: 82.1428571429vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="24"] {
-        top: 85.7142857143vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="25"] {
-        top: 89.2857142857vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="26"] {
-        top: 92.8571428571vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="27"] {
-        top: 96.4285714286vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="28"] {
-        top: 100vh !important;
-      }
-    .grid-stack > .grid-stack-item {
-        min-width: 3.5714285714%;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="1"] {
-        height: 3.5714285714vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="2"] {
-        height: 7.1428571429vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="3"] {
-        height: 10.7142857143vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="4"] {
-        height: 14.2857142857vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="5"] {
-        height: 17.8571428571vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="6"] {
-        height: 21.4285714286vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="7"] {
-        height: 25vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="8"] {
-        height: 28.5714285714vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="9"] {
-        height: 32.1428571429vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="10"] {
-        height: 35.7142857143vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="11"] {
-        height: 39.2857142857vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="12"] {
-        height: 42.8571428571vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="13"] {
-        height: 46.4285714286vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="14"] {
-        height: 50vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="15"] {
-        height: 53.5714285714vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="16"] {
-        height: 57.1428571429vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="17"] {
-        height: 60.7142857143vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="18"] {
-        height: 64.2857142857vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="19"] {
-        height: 67.8571428571vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="20"] {
-        height: 71.4285714286vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="21"] {
-        height: 75vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="22"] {
-        height: 78.5714285714vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="23"] {
-        height: 82.1428571429vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="24"] {
-        height: 85.7142857143vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="25"] {
-        height: 89.2857142857vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="26"] {
-        height: 92.8571428571vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="27"] {
-        height: 96.4285714286vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="28"] {
-        height: 100vh !important;
-      }
-
-}
-
-.grid-stack > .grid-stack-item {
-    min-width: 5%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="1"] {
-    width: 5%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="1"] {
-    left: 5%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="1"] {
-    min-width: 5%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="1"] {
-    max-width: 5%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="2"] {
-    width: 10%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="2"] {
-    left: 10%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="2"] {
-    min-width: 10%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="2"] {
-    max-width: 10%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="3"] {
-    width: 15%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="3"] {
-    left: 15%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="3"] {
-    min-width: 15%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="3"] {
-    max-width: 15%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="4"] {
-    width: 20%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="4"] {
-    left: 20%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="4"] {
-    min-width: 20%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="4"] {
-    max-width: 20%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="5"] {
-    width: 25%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="5"] {
-    left: 25%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="5"] {
-    min-width: 25%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="5"] {
-    max-width: 25%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="6"] {
-    width: 30%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="6"] {
-    left: 30%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="6"] {
-    min-width: 30%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="6"] {
-    max-width: 30%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="7"] {
-    width: 35%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="7"] {
-    left: 35%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="7"] {
-    min-width: 35%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="7"] {
-    max-width: 35%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="8"] {
-    width: 40%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="8"] {
-    left: 40%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="8"] {
-    min-width: 40%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="8"] {
-    max-width: 40%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="9"] {
-    width: 45%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="9"] {
-    left: 45%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="9"] {
-    min-width: 45%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="9"] {
-    max-width: 45%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="10"] {
-    width: 50%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="10"] {
-    left: 50%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="10"] {
-    min-width: 50%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="10"] {
-    max-width: 50%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="11"] {
-    width: 55%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="11"] {
-    left: 55%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="11"] {
-    min-width: 55%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="11"] {
-    max-width: 55%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="12"] {
-    width: 60%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="12"] {
-    left: 60%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="12"] {
-    min-width: 60%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="12"] {
-    max-width: 60%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="13"] {
-    width: 65%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="13"] {
-    left: 65%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="13"] {
-    min-width: 65%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="13"] {
-    max-width: 65%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="14"] {
-    width: 70%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="14"] {
-    left: 70%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="14"] {
-    min-width: 70%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="14"] {
-    max-width: 70%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="15"] {
-    width: 75%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="15"] {
-    left: 75%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="15"] {
-    min-width: 75%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="15"] {
-    max-width: 75%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="16"] {
-    width: 80%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="16"] {
-    left: 80%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="16"] {
-    min-width: 80%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="16"] {
-    max-width: 80%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="17"] {
-    width: 85%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="17"] {
-    left: 85%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="17"] {
-    min-width: 85%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="17"] {
-    max-width: 85%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="18"] {
-    width: 90%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="18"] {
-    left: 90%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="18"] {
-    min-width: 90%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="18"] {
-    max-width: 90%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="19"] {
-    width: 95%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="19"] {
-    left: 95%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="19"] {
-    min-width: 95%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="19"] {
-    max-width: 95%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="20"] {
-    width: 100%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="20"] {
-    left: 100%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="20"] {
-    min-width: 100%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="20"] {
-    max-width: 100%;
-  }
