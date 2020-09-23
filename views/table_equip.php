@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <th class="text-left" contenteditable="true">Rüstung</th>
-                <th class="text-left" contenteditable="true">PA</th>
+                <th class="text-left" contenteditable="true" style="width: 30px;">PA</th>
                 <th class="text-left" contenteditable="true">Besonderes</th>
             </tr>
         </thead>

@@ -7,12 +7,12 @@ $pos_x = 2;
 $pos_y = $header_height; 
 
 foreach($default_skills as $skill){ ?>
-    <div class="grid-stack-item no_padding ui-draggable ui-resizable ui-resizable-autohide" 
+    <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" 
         data-gs-x="<?=$pos_x ?>" 
         data-gs-y="<?=$pos_y ?>"
         data-gs-width="<?=$skills_w ?>" 
         data-gs-height="<?=$skills_h ?>">
-        <div class="grid-stack-item-content  bg-white standardd-values">
+        <div class="grid-stack-item-content no_padding bg-white standardd-values">
             <div class="added_item skill_item">
                 <?php if(isset($skill['img'])){ ?>
                     <div class="skill_edit"  contenteditable="true"></div>

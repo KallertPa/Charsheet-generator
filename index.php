@@ -10,7 +10,7 @@
 
 
 
-require_once('params.php'); 
+require('params.php'); 
 ?>
 
 <!DOCTYPE html>
@@ -37,43 +37,56 @@ require_once('params.php');
 </head>
 
 <body>
+    
 
-<!---->
-    <div class="row d-print-none">
-        <div class="col-lg-12 text-white text-center">
-            <h1>Dungeonslayer Charsheet Generator</h1>
+        <!---->
+        <div class="row d-print-none">
+            <div class="col-lg-12 text-white text-center">
+                <h1>Dungeonslayer Charsheet Generator</h1>
+            </div>
+            <div class="actions">
+
+                <a href="#page_1" class="btn scroll_to"><i class="fas fa-scroll"></i> Seite 1</a>
+                <a href="#page_2" class="btn scroll_to"><i class="fas fa-scroll"></i> Seite 2</a>
+                <a href="#" id="save_grid" class="btn save_content "><i class="fas fa-save" aria-hidden="true"></i>
+                    speichern</a>
+                <a href="#" id="load_grid" class="btn open_dialog" data-dialog="load"><i class="fas fa-upload"
+                        aria-hidden="true"></i> laden</a>
+            </div>
         </div>
-    </div>
-    <div class="">
-    <div class="row">
-        <div class="col-sm-6 col-md-6 dungeonslayer-content" style="padding-bottom: 25px;">
-            <div style="border: 1px solid white">
-                <div class="grid-stack grid-stack-20" id="advanced-grid" data-gs-column="20" data-gs-max-row="28"
-                    data-gs-animate="yes">
-                    <div class="grid-stack-item no_padding " data-gs-x="0" data-gs-y="0" data-gs-width="2" data-gs-height="28"
-                        data-gs-no-move="yes" data-gs-no-resize="yes" data-gs-locked="yes">
-                        <div class="grid-stack-item-content  bg-white">
-                            <img src="./assets/img/lifebar.png" />
+        <div class="content_container">
+            <div class="row">
+                <div class="col-sm-6 d-print-none" id="page_1">
+                    <h2 class="page_title  ">Seite 1</h2>
+                </div>
+                <div class="col-sm-6 d-print-none"></div>
+                <div class="col-sm-6 col-md-6 dungeonslayer-content">
+                    <div class="grid-stack grid-stack-20" id="advanced-grid" data-gs-column="20" data-gs-max-row="28"
+                        data-gs-animate="yes">
+                        <div class="grid-stack-item  " data-gs-x="0" data-gs-y="0" data-gs-width="2"
+                            data-gs-height="28">
+                            <div class="grid-stack-item-content no_padding bg-white">
+                                <img src="./assets/img/lifebar.png" />
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide ui-draggable-disabled ui-resizable-disabled" data-gs-x="2" data-gs-y="0" data-gs-width="18" data-gs-height="11" data-gs-no-move="true"
-                        data-gs-no-resize="true" data-gs-locked="true">
-                        <div class="grid-stack-item-content  bg-white standardd-values">
+                        <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide ui-draggable-disabled ui-resizable-disabled"
+                            data-gs-x="2" data-gs-y="0" data-gs-width="18" data-gs-height="11">
+                            <div class="grid-stack-item-content  bg-white standardd-values">
 
-                            <?php require_once('views/header.php'); ?>
+                                <?php require('views/header.php'); ?>
+                            </div>
                         </div>
-                    </div>
 
 
-                    <?php
+                        <?php
                     //load the default skills
-                    require_once('views/default_skills.php') ?>
-                    <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide"
-                    data-gs-x="2" data-gs-y="17" data-gs-width="9" data-gs-height="5">
-                        <div class="grid-stack-item-content ui-draggable-handle">
-                            <div class="added_table">
-                                <?php 
+                    require('views/default_skills.php') ?>
+                        <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="2"
+                            data-gs-y="17" data-gs-width="9" data-gs-height="5">
+                            <div class="grid-stack-item-content ui-draggable-handle">
+                                <div class="added_table">
+                                    <?php 
                                     $table_header = ['Waffen', 'WB', 'Gesamt', 'INI', 'GA', 'Besonderes'];
                                     $table_row_count = 8;  
                                     $$table_header_width = array(); 
@@ -82,27 +95,27 @@ require_once('params.php');
 
                                     require('views/default_table.php'); 
                                 ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide"
-                    data-gs-x="11" data-gs-y="17" data-gs-width="9" data-gs-height="5">
-                    <div class="grid-stack-item-content ui-draggable-handle">
-                        <div class="added_table">
-                            <?php
+                        <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="11"
+                            data-gs-y="17" data-gs-width="9" data-gs-height="5">
+                            <div class="grid-stack-item-content ui-draggable-handle">
+                                <div class="added_table">
+                                    <?php
                             //since we have a lot of custom stuff in the equipment table, use custom table view 
-                                require_once('views/table_equip.php'); 
+                                require('views/table_equip.php'); 
                             ?>
 
-                        </div>
+                                </div>
 
-                    </div>
-                    </div>
-                    <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide"
-                    data-gs-x="2" data-gs-y="22" data-gs-width="9" data-gs-height="6">
-                        <div class="grid-stack-item-content ui-draggable-handle">
-                            <div class="added_table">
-                                <?php 
+                            </div>
+                        </div>
+                        <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="2"
+                            data-gs-y="22" data-gs-width="9" data-gs-height="6">
+                            <div class="grid-stack-item-content ui-draggable-handle">
+                                <div class="added_table">
+                                    <?php 
                                     $table_header = ['Talent', 'Rang', 'Effekt'];
                                     $table_header_width = ['', '5', ''];
                                     $table_row_count = 10;  
@@ -110,15 +123,15 @@ require_once('params.php');
 
                                     require('views/default_table.php'); 
                                 ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide"
-                    data-gs-x="11" data-gs-y="22" data-gs-width="9" data-gs-height="6">
-                        <div class="grid-stack-item-content ui-draggable-handle">
-                            <div class="added_table">
-                                <?php 
+                        <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="11"
+                            data-gs-y="22" data-gs-width="9" data-gs-height="6">
+                            <div class="grid-stack-item-content ui-draggable-handle">
+                                <div class="added_table">
+                                    <?php 
                                     $table_header = ['Ausrüstung'];
                                     $table_header_width = array(); 
                                     $table_row_count = 10;  
@@ -126,105 +139,81 @@ require_once('params.php');
                                     
                                     require('views/default_table.php'); 
                                 ?>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
+                </div>
+
+                <div class="col-sm-6 d-none d-md-block edit_stuff">
+                    <div class="row top-items-edit  d-print-none ">
+                        <div class="col-md-12 area_toggle" data-toggle="add-skill">
+                            <h3 class="first_element">Fähigkeiten hinzufügen</h3>
+                        </div>
+
+                        <div class="col-md-4 add-skill">
+                            <div class="grid-stack-item top-button">
+
+                                <a href="#" class="open_dialog full_width btn" data-dialog="skill">
+                                    <i class="fas fa-plus"></i>
+                                    <span>Fähigkeit</span>
+                                </a>
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-2 add-skill">
+
+                            <div class="text-center newWidget grid-stack-item " data-gs-width="2" data-gs-height="3">
+                                <div class=" grid-stack-item-content no_padding">
+                                    <div class="added_item skill_item">
+                                        <div class="skill_edit" contenteditable="true"></div>
+                                        <div class="item_image"><img src="./assets/img/melee-attack.png"></div>
+                                        <div class="item_title">Überschrift</div>
+                                        <div class="item_text">Attribute</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 add-skill">
+                            <p><strong>Tipp:</strong> Die Fähigkeit kann per Drag & Drop in das Sheet verschoben werden
+                            </p>
+                        </div>
+                        <div class="col-md-12 area_toggle" data-toggle="table-add-container">
+                            <h3 class="">Tabelle hinzufügen</h3>
+                        </div>
+                        <? require('views/add_tables.php');?>
+
+                        <div class="col-md-12 hide_icon area_toggle" data-toggle="extra_table_elements" >
+                            <h3 class="">Elemente hinzufügen</h3>
+                        </div>
+
+                        <? require('views/add_custom.php');?>
+                       
+
+                        <div class="col-md-12 area_toggle" data-toggle="remove-container">
+                            <h3 class="">Elemente entfernen</h3>
+                        </div>
+                        <div class="col-md-12 text-left remove-container ">
+                            <p>Einfach ein Element auf das Feld ziehen und schon ist es weg</p>
+                        </div>
+                        <div class="col-md-12 remove-container">
+                            <div id="trash" class="text-center  top-button">
+                                <i class="fas fa-trash-alt"></i>
+                                <span>Trash</span>
+                            </div>
+                        </div>
+
+
+
+                    </div>
                 </div>
             </div>
-        </div>
+        <div id="dialog" style="display: none;">
 
-        <div class="col-sm-6 d-none d-md-block" style="border-right: 1px dashed black;">
-            <div class="row top-items-edit  d-print-none ">
-                <div class="col-md-12 d-flex">
-                    <div id="trash" class="text-center text-white top-button">
-                            <i class="fas fa-trash-alt"></i>
-                            <span>Trash</span>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <h3 class="text-white">Fähigkeiten hinzufügen</h3>
-                </div>
-                
-                <div class="col-md-12 text-white">
-                    <p><strong>Tipp:</strong> Die Fähigkeit kann per Drag & Drop in das Sheet verschoben werden</p>
-                </div>
-                <div class="col-md-4">
-                    <div class="text-white  grid-stack-item top-button">
-                        
-                        <a href="#" class="open_dialog full_width btn" data-dialog="skill">
-                            <i class="fas fa-plus"></i>
-                            <span>Neue Fähigkeit</span>
-                        </a>
-                        
-                    </div>
-                   
-                </div>
-                <div class="col-md-2 d-flex">
-
-                    <div class="text-center newWidget grid-stack-item no_padding"  data-gs-width="2" data-gs-height="3">
-                        <div class=" grid-stack-item-content">
-                            <div class="added_item skill_item">
-                                <div class="skill_edit"  contenteditable="true"></div>
-                                <div class="item_image"><img src="./assets/img/melee-attack.png"></div>
-                                <div class="item_title">Überschrift</div>
-                                <div class="item_text">Attribute</div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-12">
-                    <h3 class="text-white">Tabelle hinzufügen</h3>
-                </div>
-                <div class="col-md-12 text-left table-add-container text-white">
-                    <p><strong>Tipp:</strong>Mit Rechtsklick können Tabelleninhalte bearbeitet werden</p>    
-                </div>
-                <div class="col-md-12 text-right table-add-container text-white">
-                    <span class="table-add "><a href="#!" class="text-success"><i
-                        class="fas fa-plus-square" aria-hidden="true"></i> Reihe hinzufügen</a></span>
-                    <span class="table-add-column"><a href="#!" class="text-success"><i
-                            class="fas fa-plus-square" aria-hidden="true"></i> Spalte hinzufügen</a></span>
-                            
-                    <span class="table-remove-column"><a href="#!" class="text-success"><i
-                        class="fas fa-minus-square" aria-hidden="true"></i> Spalte entfernen</a></span>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="text-center newWidget grid-stack-item " data-gs-width="9" data-gs-height="5"> 
-                        <div class=" grid-stack-item-content">
-                            <div class="added_table">
-                                <?php 
-                                    $table_header = ['Waffen', 'WB', 'Gesamt', 'INI', 'GA', 'Besonderes'];
-                                    $table_row_count = 8;  
-                                    $$table_header_width = array(); 
-                                    $table_default = array(); 
-                                    $table_default[0] = ['Waffenlos', '+0', '', '', '+5']; 
-
-                                    require('views/default_table.php'); 
-                                ?>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <h3 class="text-white">Speichern und Laden</h3>
-                </div>
-                <div class="col-md-12 table-add-container text-white">
-                   <a href="#" id="save_grid" class="text-success save_content "><i class="fas fa-save" aria-hidden="true"></i> speichern</a>
-                   <a href="#" id="load_grid"class="text-success open_dialog" data-dialog="load"><i class="fas fa-upload" aria-hidden="true"></i> laden</a>
-                </div>
-
-
-            
-            </div>
-        </div>
-    </div>
-    </div>
-    <div id="dialog" style="display: none;">
-
-        <?php
+            <?php
         //load all files in the dialog view
         foreach (glob("views/dialog/*.php") as $filename) { 
             $file_stuff = ['views/dialog/', '.php']; 
@@ -233,13 +222,131 @@ require_once('params.php');
                 <div class="text-right">
                     <a href="#" class="close_dialog"><i class="fas fa-times pull-right"></i></a>
                 </div>
-                <?php include $filename; ?> 
+                <?php include $filename; ?>
             </div>
-        <?php } ?>
+            <?php } ?>
+        </div>
+        <div id="black_overlay" style="display: none; "></div>
+
+        <div class="row second_content">
+            <div class="col-sm-6  d-print-none" id="page_2">
+                <h2 class="page_title">Seite 2</h2>
+            </div>
+            
+
+            <div class="col-sm-6 d-print-none"></div>
+            <div class="col-sm-6 col-md-6 dungeonslayer-content">
+                <div class="grid-stack grid-stack-20" id="second-grid" data-gs-column="20" data-gs-max-row="28"
+                    data-gs-animate="yes">
+
+                    <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="0"
+                        data-gs-y="0" data-gs-width="10" data-gs-height="6">
+                        <div class="grid-stack-item-content ui-draggable-handle">
+                            <div class="added_table">
+                                <?php 
+                                    $table_header = ['LP-Verwaltung', 'Start/Max.Wert', 'Gesteigert', 'Besonderes', 'Gesamt'];
+                                    $table_row_count = 10;  
+                                    $$table_header_width = array(); 
+                                    $table_default = array(); 
+                                    $table_default[0] = ['Waffenlos', '+0', '', '', '+5']; 
+
+                                    require('views/table_steps.php'); 
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="10"
+                        data-gs-y="0" data-gs-width="10" data-gs-height="6">
+                        <div class="grid-stack-item-content ui-draggable-handle">
+                            <div class="area_money">
+                                <?php
+                            //since we have a lot of custom stuff in the equipment table, use custom table view 
+                                require('views/area_money.php'); 
+                            ?>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="0"
+                        data-gs-y="6" data-gs-width="10" data-gs-height="13">
+                        <div class="grid-stack-item-content ui-draggable-handle">
+                            <div class="added_table">
+                                <?php 
+                                    $table_header = ['Ausrüstung', 'Wo gelagert?', 'Besonderes'];
+                                    $table_header_width = array();
+                                    $table_row_count = 24;  
+                                    $table_default = array(); 
+
+                                    require('views/default_table.php'); 
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="10"
+                        data-gs-y="6" data-gs-width="10" data-gs-height="11">
+                        <div class="grid-stack-item-content ui-draggable-handle">
+                            <div class="added_table">
+                                <?php 
+                                    $table_header = ['Kräuter, Tränke, Artefakte', 'Effekt'];
+                                    $table_header_width = [50, 50]; 
+                                    $table_row_count = 20;  
+                                    $table_default = array(); 
+                                    
+                                    require('views/default_table.php'); 
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="0"
+                        data-gs-y="19" data-gs-width="10" data-gs-height="9">
+                        <div class="grid-stack-item-content ui-draggable-handle">
+                            <div class="added_table">
+                                <?php 
+                                    $table_header = ['Talent', 'Rang', 'Effekt'];
+                                    $table_header_width = ['', 5, '']; 
+                                    $table_row_count = 16;  
+                                    $table_default = array(); 
+                                    
+                                    require('views/default_table.php'); 
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="10"
+                        data-gs-y="17" data-gs-width="10" data-gs-height="5">
+                        <div class="grid-stack-item-content ui-draggable-handle">
+                            <div class="added_table">
+                                <?php require('views/table_char.php'); ?>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="10"
+                        data-gs-y="22" data-gs-width="10" data-gs-height="6">
+                        <div class="grid-stack-item-content ui-draggable-handle">
+                            <div class="added_table">
+                                <?php require('views/table_nsc.php'); ?>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+           
+        </div>
+
+        <div class="row d-print-none" id="footer">
+            <div class="col-md-12 text-center">
+                <a href="/impressum.php">Impressum</a>
+            </div>
+        </div>
     </div>
-    <div id="black_overlay" style="display: none; "></div>
-
-
     <script src="./assets/js/script.js"></script>
 </body>
 

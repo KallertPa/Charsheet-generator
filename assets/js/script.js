@@ -23,12 +23,34 @@ $(document).ready(function () {
     $('#black_overlay').fadeOut(); 
   }
 
+  $('.scroll_to').click(function(e){
+    e.preventDefault(); 
+    var ele = $(this).attr('href');
+    console.log(ele);
+    $("html, body").animate({
+      scrollTop: $(ele).offset().top
+  }, 300);
+  }); 
 
+
+/**
+ * Toggling the view in the sidebar
+ */
+
+$('.area_toggle').on('click',function(e){
+  e.preventDefault(); 
+  var ele = $(this).attr('data-toggle');
+  $('.'+ele).toggle(300, function() {
+    // Animation complete.
+  });
+  $(this).toggleClass('hide_icon'); 
+}); 
 
 /**
  * Changing the Skill in the add Skill edit 
  */
-  $('#change_image').click(function() {
+  $('#change_image').click(function(e) {
+    e.preventDefault(); 
     
     var title = $('#new_item_title').val(); 
     var text = $('#new_item_text').val(); 
@@ -44,7 +66,7 @@ $(document).ready(function () {
 /**
  * On Attributes edit calculate the Skills 
  */
-  $('.attrib_edit').on('input', function(){
+  $(document).on( 'input','.dungeonslayer-content .attrib_edit', function(){
     calculateSkills(); 
   }); 
 
@@ -62,7 +84,7 @@ $(document).ready(function () {
       if(attribs.length = 9){
 
         // get the Equipment value 
-        attribs['pa'] = parseInt($('.pa_result').text()); 
+        attribs['pa'] = parseInt($('.dungeonslayer-content .pa_result').text()); 
         $('.dungeonslayer-content .skill_item').each(function(){
           //workaround for problem with geist und geschick: usually first replaces the ge and then the gei is not replaced. Now rename gei to sk
           var value = $(this).children('.item_text').text().toLowerCase().replace('ä', 'a').replace('ö', 'o').replace('gei', 'sk');
@@ -98,15 +120,15 @@ $(document).ready(function () {
 /** 
  * On edit the Equipment table, calculate total equipment stats  
  */
-  $('.pa_edit').on('input', function(){
+  $(document).on('input','.dungeonslayer-content .pa_edit', function(){
     var total = 0; 
-    $('.pa_edit').each(function(){
+    $('.dungeonslayer-content .pa_edit').each(function(){
       var text = parseInt($(this).text()); 
       if(typeof(text) == "number" && text > 0){
         total += text; 
       }
     }); 
-    $('.pa_result').text(total);
+    $('.dungeonslayer-content .pa_result').text(total);
     calculateSkills(); 
   }); 
 
@@ -123,6 +145,17 @@ $(document).ready(function () {
       float : true
 
   });
+
+  var $grid = $('#second-grid').gridstack({
+    removable: '#trash',
+    removeTimeout: 100,
+    acceptWidgets: true,
+    verticalMargin: 0,
+    cellHeight: 'auto',
+    float : true
+
+});
+
   $('.newWidget').draggable({
       revert: 'invalid',
       scroll: false,
@@ -149,7 +182,7 @@ $(document).ready(function () {
  * For the contenteditable
  * should be editable with right click since left click activates the drag and drop 
  */
-  $('body').on('.skill_edit, .attrib_edit, .table', "contextmenu", function(e) {
+  $(document).on( "contextmenu", '*[contenteditable="true"]', function(e) {
     e.preventDefault();
     return false;
   });
@@ -192,9 +225,9 @@ $('#json_file').on('change', function(){
 }); 
 
 
-  this.grid = $('.grid-stack').data('gridstack');
+  
   this.saveGrid = function () {
-      this.serializedData = $('.grid-stack > .grid-stack-item:visible').map(function (i, el) {
+      first_page = $('#advanced-grid.grid-stack > .grid-stack-item:visible').map(function (i, el) {
         el = $(el);
         var node = el.data('_gridstack_node');
         console.log(el.html());
@@ -206,9 +239,23 @@ $('#json_file').on('change', function(){
           html: el.html()
         };
       }).toArray();
-      var data = JSON.stringify(this.serializedData, null, '  '); 
-      $('#saved_data').val();
-      saveData(data, 'dinge.json');
+      second_page = $('#second-grid.grid-stack > .grid-stack-item:visible').map(function (i, el) {
+        el = $(el);
+        var node = el.data('_gridstack_node');
+        console.log(el.html());
+        return {
+          x: node.x,
+          y: node.y,
+          width: node.width,
+          height: node.height, 
+          html: el.html()
+        };
+      }).toArray();
+
+      var total = [first_page, second_page]; 
+      var data = JSON.stringify(total, null, '  '); 
+
+      saveData(data, 'export_characters.json');
       return false;
     }.bind(this);
 
@@ -217,16 +264,31 @@ $('#json_file').on('change', function(){
       var serializedData = $('#output').text();  
       var data = JSON.parse(serializedData); 
       var data = JSON.parse(data); 
-      console.log(data);
-      this.grid.removeAll();
-      var items = GridStackUI.Utils.sort(data);
-      this.grid.batchUpdate();
+
+      first_grid = $('#advanced-grid.grid-stack').data('gridstack');
+
+      first_grid.removeAll();
+      var items = GridStackUI.Utils.sort(data[0]);
+      first_grid.batchUpdate();
       items.forEach(function (node) {
         var html =  $($.parseHTML('<div>'+node.html+'</div>')); 
         console.log(html);
-        this.grid.addWidget(html, node);
+        first_grid.addWidget(html, node);
       }, this);
-      this.grid.commit();
+      first_grid.commit();
+
+      second_grid = $('#second-grid.grid-stack').data('gridstack');
+
+      second_grid.removeAll();
+      var items = GridStackUI.Utils.sort(data[1]);
+      second_grid.batchUpdate();
+      items.forEach(function (node) {
+        var html =  $($.parseHTML('<div>'+node.html+'</div>')); 
+        second_grid.addWidget(html, node);
+      }, this);
+      second_grid.commit();
+
+
       close_dialog(); 
       return false;
     }.bind(this);
@@ -269,7 +331,7 @@ $('#json_file').on('change', function(){
       $clone2.insertBefore('.top-items-edit #table tbody tr td.remove_in_element');
     });    
   $('.table-remove-column').on('click', () => {
-      $tableID.find(' thead tr th').last().prev('th').detach();
+      $tableID.find(' thead th').last().prev('th').detach();
       $( ".top-items-edit #table tbody tr" ).each(function( index ) {
           $( this ).find( "td" ).last().prev('td').detach();
       }); 
@@ -281,5 +343,16 @@ $('#json_file').on('change', function(){
   });
 
 
-
+/**
+ * Sticky Sidebar 
+ **/
+    $(window).scroll(function(){
+      if(($(document).scrollTop() > 275)) {
+              $('.top-items-edit').removeClass('relative');
+              $('.top-items-edit').addClass('fixed');
+      } else {
+              $('.top-items-edit').removeClass('fixed');
+              $('.top-items-edit').addClass('relative');
+      }
+  });
 });

@@ -5,19 +5,24 @@
     }
     .grid-stack {
         width: 100%;
-        height: 100vh !important;
+        height: calc( 100vh - 2px ) !important;
         page-break-after: always
     }
     .item_image{
         max-width: 100%;
         width: 100%; 
     }
+    .content_container{
+      padding: 0px; 
+    }
     .row {
         padding: none;
         margin-left: 0px !important;
         margin-right: 0px !important;
     }
-  
+  .d-print-none{
+    display: none !important;
+  }
     .col-md-6 {
         max-width: 100%;
         padding: 0px !important;
@@ -29,61 +34,95 @@
   .dungeonslayer-content .grid-stack-item-content{
       box-shadow: none; 
   }
+  td > img{
+    height: 18px; 
+  }
+  *[contenteditable="true"] {
+    background-color: transparent;
+}
+div#second-grid:after,
+div#advanced-grid:after {
+  display: none;
+}
+  .second_content{
+    margin-top: 0px; 
+  }
+  .nsc_notes {
+    height: 113px !important;
+}
     body {
         max-width: 100%;
         margin-left: 0px;
     }
+    .nsc_skill .skill_edit{
+     top: 21px !important; 
+    }
+    .nsc_skill .skill_edit, 
     .header_edit, 
     .item_title, 
     .dungeonslayer-content .table thead th {
         font-size: 24px;
     }
+    
+    .table_steps_gesteigert, 
+    .table_steps_gesamt, 
+    .table_steps_half{
+      width: auto; 
+      min-width: 28px;
+    }
+
+
     .table-bordered td.woodstamp,
     .item_text, 
+    .table-bordered  td .woodstamp, 
+    .table-bordered  td span.woodstamp, 
     .dungeonslayer-content .table-bordered td {
         font-size: 20px;
         line-height: 20px; 
     }
-    .table-bordered td{
+    .table td{
         padding: 3px 5px; 
+        padding-top: 3px !important;
+        padding-bottom: 3px !important;
+        height: 26px;
     }
-    .gray_back,
+    .back_gray,
     .table thead th {
     background-color: #d0d4d7 !important;
     -webkit-print-color-adjust: exact; 
-}
-.dungeonslayer-content  .skill_edit{
-  top: 7px; 
-}
-.skill_edit, 
-.attrib_edit {
-  font-size: 40px;
-}
-.header_logo{
-  margin-bottom: 20px; ;
-}
-small {
-  font-size: 10px;
-  line-height: 10px;
-}
-.attrib{
-  font-size: 55px;
-  line-height: 60px;
-}
-.header_edit{
-  margin-bottom: 5px;
-}
+    }
+    .dungeonslayer-content  .skill_edit{
+      top: 7px; 
+    }
+    .skill_edit, 
+    .attrib_edit {
+      font-size: 40px;
+    }
+    .header_logo{
+      margin-bottom: 20px; ;
+    }
+    small {
+      font-size: 10px;
+      line-height: 10px;
+    }
+    .attrib{
+      font-size: 55px;
+      line-height: 60px;
+    }
+    .header_edit{
+      margin-bottom: 5px;
+    }
 
-.input_field:first-child{
-  margin-top: 10px; 
-}
-.small_stuff .header_edit.text-center{
-  width: 40px;
-}
-.input_field, 
-.attrib_row {
-  margin-bottom: 30px;
-}
+    .input_field:first-child{
+      margin-top: 10px; 
+    }
+    .small_stuff .header_edit.text-center{
+      width: 40px;
+    }
+    .input_field, 
+    .attrib_row {
+      margin-bottom: 30px;
+    }
     .grid-stack > .grid-stack-item[data-gs-y="1"] {
         top: 3.5714285714vh !important;
       }
