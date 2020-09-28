@@ -22,18 +22,25 @@ require('params.php');
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dungeonslayer Charsheet Generator</title>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/>
+
     <link rel="stylesheet" href="./assets/css/gridstack.css" />
     <link rel="stylesheet" href="./assets/css/gridstack-extra.css" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.6.9/shim.min.js"></script>
     <script src="/assets/js/gridstack.all.js"></script>
     <link rel="stylesheet" href="/assets/css/fontawsome/css/all.css" />
-    <link rel="stylesheet" href="/assets/css/style.css" />
-    <link rel="stylesheet" href="/assets/css/print.css" />
+    <link rel="stylesheet" href="/assets/css/style.css?v=1" />
+    <link rel="stylesheet" href="/assets/css/print.css?v=1" />
 </head>
 
 <body>
@@ -48,6 +55,7 @@ require('params.php');
 
                 <a href="#page_1" class="btn scroll_to"><i class="fas fa-scroll"></i> Seite 1</a>
                 <a href="#page_2" class="btn scroll_to"><i class="fas fa-scroll"></i> Seite 2</a>
+                <a href="#page_3" class="btn scroll_to"><i class="fas fa-scroll"></i> Seite 3</a>
                 <a href="#" id="save_grid" class="btn save_content "><i class="fas fa-save" aria-hidden="true"></i>
                     speichern</a>
                 <a href="#" id="load_grid" class="btn open_dialog" data-dialog="load"><i class="fas fa-upload"
@@ -169,7 +177,7 @@ require('params.php');
                                 <div class=" grid-stack-item-content no_padding">
                                     <div class="added_item skill_item">
                                         <div class="skill_edit" contenteditable="true"></div>
-                                        <div class="item_image"><img src="./assets/img/melee-attack.png"></div>
+                                        <div class="item_image"><img src="./assets/img/icons/melee-attack.png"></div>
                                         <div class="item_title">Überschrift</div>
                                         <div class="item_text">Attribute</div>
                                     </div>
@@ -191,8 +199,26 @@ require('params.php');
                         </div>
 
                         <? require('views/add_custom.php');?>
-                       
 
+
+                        <div class="col-md-12 hide_icon area_toggle" data-toggle="change_fonts" >
+                            <h3 class="">Schrift</h3>
+                        </div>
+
+                        <? require('views/add_font.php');?>
+                        <style>
+                            <?php
+                            //load all files in the dialog view
+                            foreach (glob("assets/fonts/*.ttf") as $filename) { 
+                                $file_stuff = ['assets/fonts/', '-Regular', '.ttf']; 
+                                $name = str_replace($file_stuff, '', $filename); ?>
+                                @font-face {
+                                    font-family: <?php echo $name ?>;
+                                    src: url(/<?php echo $filename ?>)
+                                }
+                                .<?php echo $name ?>{ font-family:  <?php echo $name ?>}
+                            <?php } ?>
+                        </style>
                         <div class="col-md-12 area_toggle" data-toggle="remove-container">
                             <h3 class="">Elemente entfernen</h3>
                         </div>
@@ -244,12 +270,6 @@ require('params.php');
                         <div class="grid-stack-item-content ui-draggable-handle">
                             <div class="added_table">
                                 <?php 
-                                    $table_header = ['LP-Verwaltung', 'Start/Max.Wert', 'Gesteigert', 'Besonderes', 'Gesamt'];
-                                    $table_row_count = 10;  
-                                    $$table_header_width = array(); 
-                                    $table_default = array(); 
-                                    $table_default[0] = ['Waffenlos', '+0', '', '', '+5']; 
-
                                     require('views/table_steps.php'); 
                                 ?>
                             </div>
@@ -340,14 +360,54 @@ require('params.php');
             </div>
            
         </div>
+        <div class="row second_content">
+            <div class="col-sm-6  d-print-none" id="page_3">
+                <h2 class="page_title">Seite 3</h2>
+            </div>
+            
 
+            <div class="col-sm-6 d-print-none"></div>
+            <div class="col-sm-6 col-md-6 dungeonslayer-content">
+                <div class="grid-stack grid-stack-20" id="third-grid" data-gs-column="20" data-gs-max-row="28"
+                    data-gs-animate="yes">
+                    <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="0"
+                        data-gs-y="0" data-gs-width="10" data-gs-height="6">
+                        <div class="grid-stack-item-content ui-draggable-handle">
+                            <div class="added_table">
+                                <?php require('views/table_nsc.php'); ?>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="10"
+                        data-gs-y="0" data-gs-width="10" data-gs-height="6">
+                        <div class="grid-stack-item-content ui-draggable-handle">
+                            <div class="added_table">
+                                <?php 
+                                    $table_header = ['Ausrüstung', 'Wo gelagert?', 'Besonderes'];
+                                    $table_header_width = array();
+                                    $table_row_count = 9;  
+                                    $table_default = array(); 
+
+                                    require('views/default_table.php'); 
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+           
+        </div>
+        <div class="col-sm-6 d-print-none"></div>
         <div class="row d-print-none" id="footer">
             <div class="col-md-12 text-center">
                 <a href="/impressum.php">Impressum</a>
             </div>
         </div>
     </div>
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/script.js?v=1"></script>
 </body>
 
 </html>

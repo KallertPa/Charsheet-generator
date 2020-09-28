@@ -34,6 +34,63 @@ $(document).ready(function () {
 
 
 /**
+ * Change font stuff
+ */
+
+$('#fonts').on('change', function(){
+  var selected = $("#fonts :selected").val();
+  $("body").removeClass();
+  $('body').addClass(selected);
+}); 
+
+$('#change_font').click(function(e){
+  e.preventDefault(); 
+    var selected = $("#font_selection :selected").val();
+    var tr = window.getSelection().getRangeAt(0);
+    var span = document.createElement("span");
+    span.classList.add(selected);
+    tr.surroundContents(span);
+
+}); 
+const pickr = new Pickr({
+  el: '.pickr-container',
+  theme: 'classic',
+  default: '#42445a',
+  lockOpacity: true,
+  components: {
+    palette: true,
+    preview: true,
+    opacity: false,
+    hue: true,   
+    interaction: {
+        hex: false,  
+        rgba: false,
+        hsla: false, 
+        hsva: false, 
+        cmyk: false,
+        input: true,
+        cancel: false, 
+        clear: false, 
+        save: true,  
+    }
+  }
+}); 
+pickr.on('save', (color, instance) => {
+  pickr.hide();
+});
+
+$('#change_color').click(function(e){
+  e.preventDefault(); 
+    var tr = window.getSelection().getRangeAt(0);
+    var span = document.createElement("span");
+    var color = pickr.getColor(); 
+    span.style.cssText = "color:"+color.toHEXA();
+    tr.surroundContents(span);
+
+}); 
+
+
+/**
  * Toggling the view in the sidebar
  */
 
@@ -58,7 +115,7 @@ $('.area_toggle').on('click',function(e){
     $('.top-items-edit .item_title').html(title); 
     $('.top-items-edit .item_text').html(text); 
     if(radioValue){
-        $('.top-items-edit .item_image').html('<img src="./assets/img/'+radioValue+'" />');
+        $('.top-items-edit .item_image').html('<img src="./assets/img/icons/'+radioValue+'" />');
     } 
     close_dialog(); 
   }); 
@@ -116,6 +173,47 @@ $('.area_toggle').on('click',function(e){
     });
   }
 
+  $(document).on( 'input','.dungeonslayer-content .nsc_attrib_edit', function(){
+    var attribs = [];
+
+    //get all the current attributes 
+    $(this).closest('.dungeonslayer-content').find('.nsc_attrib_edit').each(function(){
+      var skill = $(this).attr('data-attr'); 
+      var text = $(this).text(); 
+      attribs[skill] =text; 
+    
+      //when all the attributes have been looped through 
+      if(attribs.length = 11){
+        $(this).closest('.dungeonslayer-content').find('.nsc_skill').each(function(){
+          //workaround for problem with geist und geschick: usually first replaces the ge and then the gei is not replaced. Now rename gei to sk
+          var value = $(this).children('.skill_edit').attr('data-calc');
+          var new_v = value;  
+          for (key in attribs) {
+            if( value.indexOf(key) >= 0){
+              if(attribs[key]){              
+                new_v = new_v.replace(key, attribs[key]); 
+              }
+            }          
+          };
+          console.log(new_v);
+          try {
+            old_v = new_v;   
+            var res = eval(new_v); 
+            
+            if(typeof(res) == "number" && res > 0){
+
+              $(this).children('.skill_edit').text(res); 
+            }
+          } catch (e) {
+          }
+
+        });
+      }
+    });
+  }); 
+
+
+
 
 /** 
  * On edit the Equipment table, calculate total equipment stats  
@@ -155,6 +253,41 @@ $('.area_toggle').on('click',function(e){
     float : true
 
 });
+$('#third-grid').gridstack({
+  removable: '#trash',
+  removeTimeout: 100,
+  acceptWidgets: true,
+  verticalMargin: 0,
+  cellHeight: 'auto',
+  float : true
+});
+
+$('#third-grid, #second-grid, #advanced-grid').on('change', function(event, items) {
+  console.log(items[0].el);
+   var height = $(items[0].el).find('.grid-stack-item-content').outerHeight(); 
+   var table_height = $(items[0].el).find('table.variable_height').outerHeight(); 
+   var diff = height - table_height; 
+   if(diff > 0){
+     var amount = Math.floor(diff/17); 
+     for (i = 0; i < amount; i++) {
+      const $clone =  $(items[0].el).find('tbody tr').last().clone(true).removeClass('hide table-line');
+      $clone.find('td').text(''); 
+
+      $(items[0].el).find('table.variable_height').append($clone);
+     }
+     
+     console.log('added '+amount);
+   } else if(diff < 0){
+      var amount = Math.ceil(Math.abs(diff)/17); 
+      for (i = 0; i < amount; i++) {
+        $(items[0].el).find('tbody tr').last().detach();
+      }
+   }
+
+
+});
+
+
 
   $('.newWidget').draggable({
       revert: 'invalid',
@@ -346,6 +479,14 @@ $('#json_file').on('change', function(){
 /**
  * Sticky Sidebar 
  **/
+if(($(document).scrollTop() > 275)) {
+  $('.top-items-edit').removeClass('relative');
+  $('.top-items-edit').addClass('fixed');
+} else {
+  $('.top-items-edit').removeClass('fixed');
+  $('.top-items-edit').addClass('relative');
+}
+
     $(window).scroll(function(){
       if(($(document).scrollTop() > 275)) {
               $('.top-items-edit').removeClass('relative');

@@ -18,7 +18,7 @@ $header_height = 11;
         ['img' => 'movement-rate.png', 'title' => 'Laufen', 'text' => '(AGI/2)+1'],
         ['img' => 'melee-attack.png', 'title' => 'Schlagen', 'text' => 'KÖR+ST'],
         ['img' => 'ranged-attack.png', 'title' => 'Schießen', 'text' => 'AGI+GE'],
-        ['img' => 'hit-points.png', 'title' => 'Werfen', 'text' => 'KÖR+GE'],
-        ['img' => 'hit-points.png', 'title' => 'Wahrnehmen', 'text' => 'GEI+VE oder 8'],
-        ['img' => 'hit-points.png', 'title' => 'Handwerk', 'text' => 'GEI+GE'],
+        ['img' => 'throwing.png', 'title' => 'Werfen', 'text' => 'KÖR+GE'],
+        ['img' => 'eye.png', 'title' => 'Wahrnehmen', 'text' => 'GEI+VE oder 8'],
+        ['img' => 'handwerk.png', 'title' => 'Handwerk', 'text' => 'GEI+GE'],
     ];

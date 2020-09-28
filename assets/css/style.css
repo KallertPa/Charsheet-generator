@@ -1,7 +1,7 @@
 /**
  * BASIC STUFF
  **/
- body {
+body {
   width: 90%;
   margin-left: 5%;
   background-color: #000000;
@@ -9,96 +9,128 @@
   background-position: center top;
   background-size: auto;
   background-repeat: repeat-x;
-  width:  1440px;
+  width: 1440px;
   margin: 0px auto;
 }
+
 .row.top-items-edit.d-print-none.fixed {
   position: fixed;
-  top: 0px; 
+  top: 0px;
   max-width: 715px;
-  
-  max-height: calc( 100vh - 40px );
+
+  max-height: calc(100vh - 40px);
   overflow: auto;
 }
+
 img {
   max-width: 100%;
   height: auto;
 }
-.width-100{
-  width: 100px; 
+
+.width-100 {
+  width: 100px;
 }
+
 .btn {
   background-color: #8cad45;
   border-radius: 0px;
   text-align: left;
   color: white;
   padding: 10px 15px;
-  padding: 15px; 
-  margin-bottom: 15px; 
+  padding: 15px;
+  margin-bottom: 15px;
 }
-.btn.full_width{
-  width: 100%; 
+
+.btn.full_width {
+  width: 100%;
 }
+
 .btn:hover {
   background-color: #557622;
   text-decoration: none;
 }
-.back_gray{
-  background-color: #d0d4d7; 
+
+.back_gray {
+  background-color: #d0d4d7;
 }
 
-.dungeonslayer-content .nsc_skill .skill_edit{
-  top: 15px; 
+.dungeonslayer-content .nsc_skill .skill_edit {
+  top: 15px;
 }
+
 *[contenteditable="true"] {
   background-color: #e8e8e8;
 }
+
 .extra_table_elements *[contenteditable="true"] {
   background-color: transparent;
 }
-.extra_table_elements{
+
+.extra_table_elements {
   margin-bottom: 10px;
 }
+
 .fix_height img {
-max-height: 100%;
+  max-height: 100%;
 }
 
 .fix_height .newWidget {
-height: 100%;
+  height: 100%;
 }
 
 .fix_height .newWidget .grid-stack-item-content {
-height: 200px;
+  height: 175px;
 }
+
 .extra_table_elements .newWidget {
   background-color: white;
   height: 100%;
 }
+
 .table_steps_half {
   width: 15px;
   display: inline-block;
 }
+
 .table_steps_gesteigert {
   width: 12px;
   display: inline-block;
 }
+
 .table_steps_gesamt {
   width: 15px;
   display: inline-block;
 }
-.ui-draggable-dragging .nsc_table{
+
+.ui-draggable-dragging .nsc_table {
   width: 309px;
 }
+
 div#second-grid:after,
 div#advanced-grid:after {
-  /* max-height: 952px; */
-  /* overflow: hidden; */
   top: 953px;
   position: absolute;
   content: '';
   width: 100%;
   height: 0px;
   border-bottom: 3px dotted #e7e7e7;
+}
+.pickr {
+  float: left;
+  margin-right: 15px;
+}
+a#change_color > i{
+  background-image: linear-gradient(to top, green, yellow, orange, red);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+#change_font, 
+a#change_color {
+  line-height: 32px;
+  color: black;
+}
+.table_magicians thead img{
+  max-height: 20px;
 }
 /**
 * FONTS
@@ -108,16 +140,12 @@ div#advanced-grid:after {
   src: url(../fonts/Woodstamp.otf)
 }
 
-@font-face {
-  font-family: Alegreya;
-  src: url(../fonts/Alegreya-Regular.ttf)
-}
-
-body{
+body {
   font-size: 16px;
   font-family: Alegreya;
 }
-.woodstamp, 
+
+.woodstamp,
 .item_title,
 h1,
 h2,
@@ -125,25 +153,31 @@ h4,
 h3 {
   font-family: Woodstamp;
 }
+
 h1 {
   font-size: 70px;
   margin-top: 40px;
   margin-bottom: 50px;
 }
+
 h2 {
   border-bottom: 1px solid black;
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
 }
+
 h3 {
   margin-top: 20px;
   border-bottom: 3px double black;
 }
-h3.first_element{
-  margin-top: 0px; 
+
+h3.first_element {
+  margin-top: 0px;
 }
+
 h4 {
   line-height: 17px;
 }
+
 h2.page_title {
   text-align: center;
   font-size: 40px;
@@ -151,46 +185,56 @@ h2.page_title {
   width: 80%;
   margin-left: 10%;
 }
+
 a.text-success i {
-  color: #8cad45!important;
+  color: #8cad45 !important;
 }
+
 a.text-success {
   color: black !important;
 }
+
 i.fas.fa-minus-square {
   color: #bf4216 !important;
 }
-.header_edit{
-  font-size: 14px; 
+
+.header_edit {
+  font-size: 14px;
 }
+
 .item_text,
-.table-bordered td{
+.table-bordered td {
   font-size: 10px;
 }
+
 .table-bordered .woodstamp,
-.table-bordered td.woodstamp{
+.table-bordered td.woodstamp {
   font-size: 13px;
   line-height: 13px;
 }
-h4, 
-.item_title, 
-.table thead th{
-  font-size: 17px; 
+
+h4,
+.item_title,
+.table thead th {
+  font-size: 17px;
 }
 
-.strong{
-  font-weight: bold; 
+.strong {
+  font-weight: bold;
 }
+
 small {
   font-size: 6px;
   line-height: 7px;
   display: block;
   margin: 2px 0px;
 }
-.area_toggle{
-  cursor: pointer; 
+
+.area_toggle {
+  cursor: pointer;
 }
-.area_toggle.hide_icon:after{
+
+.area_toggle.hide_icon:after {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f078";
@@ -199,7 +243,8 @@ small {
   bottom: 10px;
   font-size: 20px;
 }
-.area_toggle:after{
+
+.area_toggle:after {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f077";
@@ -208,86 +253,104 @@ small {
   bottom: 10px;
   font-size: 20px;
 }
+
 @supports (-webkit-text-stroke: 2px black) {
   .outline {
     -webkit-text-stroke: 2px black;
     -webkit-text-fill-color: white;
   }
 }
+
 /**
 * GRIDSTACK STUFF
 **/
 .grid-stack {
   background-color: white;
 }
+
 .dungeonslayer-content .grid-stack-item-content {
   overflow: hidden !important;
-  -webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
 }
+
 .newWidget .grid-stack-item-content {
   background-color: white;
 }
+
 .grid-stack>.grid-stack-item>.grid-stack-item-content {
   left: 0px;
   right: 0px;
   bottom: 0px;
   top: 0px;
 }
-.dungeonslayer-content .remove_in_element{
-  display: none!important; 
+
+.dungeonslayer-content .remove_in_element {
+  display: none !important;
 }
-.grid-stack-item .grid-stack-item-content:not(.no_padding){
-  padding: 5px; 
+
+.grid-stack-item .grid-stack-item-content:not(.no_padding) {
+  padding: 5px;
 
 }
-.grid-stack .grid-stack-placeholder>.placeholder-content{
-  left: 0px !important; 
-}  
-.dungeonslayer-content .item_image{
-  padding: 0px 10px; 
+
+.grid-stack .grid-stack-placeholder>.placeholder-content {
+  left: 0px !important;
 }
-body .grid-stack>.grid-stack-item{
-  min-width: 2.5% !important; 
+
+.dungeonslayer-content .item_image {
+  padding: 0px 10px;
+}
+
+body .grid-stack>.grid-stack-item {
+  min-width: 2.5% !important;
 }
 
 
 
 /**
 * PDF HEADER
-**/  
+**/
 .input_field:first-child {
-  margin-top: 9px; 
+  margin-top: 9px;
 }
+
 .input_field {
   border: 2px solid black;
-  padding: 0px 5px; 
-  margin:0px 0px 15px 0px;
+  padding: 0px 5px;
+  margin: 0px 0px 15px 0px;
 }
-.input_field h4{
-  margin-bottom: 0px; 
+
+.input_field h4 {
+  margin-bottom: 0px;
 }
+
 .header_logo {
   margin-bottom: 10px;
   margin-left: -5px;
   margin-right: -5px;
 }
-.details.input_field > .detail  {
-  width:20%; 
+
+.details.input_field>.detail {
+  width: 20%;
   float: left;
 }
-.details.input_field > .detail:not(:last-child)  {
-  border-right: 2px solid black; 
+
+.details.input_field>.detail:not(:last-child) {
+  border-right: 2px solid black;
 }
-.details.input_field{
-  padding: 0px; 
+
+.details.input_field {
+  padding: 0px;
   min-height: 42px;
   display: flex;
 }
-.detail_head{
+
+.detail_head {
   padding-right: 5px;
 }
+
 .small_stuff .header_edit.text-center {
   position: absolute;
   top: 9px;
@@ -296,8 +359,9 @@ body .grid-stack>.grid-stack-item{
 }
 
 .small_stuff {
-    position: relative;
+  position: relative;
 }
+
 .attrib {
   width: 50%;
   float: left;
@@ -305,9 +369,11 @@ body .grid-stack>.grid-stack-item{
   line-height: 45px;
   font-family: Woodstamp;
 }
+
 .attrib_row {
   margin-bottom: 10px;
 }
+
 .attrib_edit {
   width: 50%;
   float: left;
@@ -315,21 +381,25 @@ body .grid-stack>.grid-stack-item{
   border: 2px solid black;
   text-align: center;
 }
+
 .small_stuff .info {
   position: absolute;
   bottom: 0px;
   width: 100%;
 }
-.dungeonslayer-content .skill_edit{
-  top: 11px; 
+
+.dungeonslayer-content .skill_edit {
+  top: 11px;
 }
+
 .skill_edit {
   position: absolute;
   width: 50%;
-  margin-left: 25%; 
+  margin-left: 25%;
   text-align: center;
   top: 11px;
 }
+
 .skill_item {
   position: relative;
 }
@@ -337,8 +407,9 @@ body .grid-stack>.grid-stack-item{
 .skill_edit {
   top: 28px;
 }
+
 .area_money {
-  border: 2px solid black; 
+  border: 2px solid black;
   height: 100%;
   position: relative;
 }
@@ -347,31 +418,34 @@ body .grid-stack>.grid-stack-item{
   padding: 0px 60px;
 }
 
-.area_money .row > div {
-    padding: 0px 5px;
+.area_money .row>div {
+  padding: 0px 5px;
 }
 
 .area_money .content_bottom {
-    position: absolute;
-    bottom: 0px;
+  position: absolute;
+  bottom: 0px;
 }
-.dungeonslayer-content .area_money .skill_edit{
-  top: 24px; 
+
+.dungeonslayer-content .area_money .skill_edit {
+  top: 24px;
   width: 100%;
   left: 0px;
   margin-left: 0px;
 }
+
 /**
 * Second page
 **/
-.second_content{
-  margin-top: 70px; 
+.second_content {
+  margin-top: 70px;
 }
 
 /**
 * TABLE STUFF
 **/
-th,td {
+th,
+td {
   height: 20px;
   border: 1px solid black;
 }
@@ -381,46 +455,67 @@ th,td {
   float: left;
   padding-left: 5px;
 }
+
 .half_table.half_first {
-width: 28%;
+  width: 28%;
 }
-table{
-  width: 100%; 
+
+table {
+  width: 100%;
 }
+
 .table-bordered {
   border: 2px solid black !important;
+  margin-bottom: 0px;
 }
 
 th.remove_in_element {
   width: 50px;
 }
-td > img {
+
+td>img {
   height: 13px;
+  float: left;
+}
+.with_image span[contenteditable="true"] {
+  
+  margin-left: 18px;
+}
+span[contenteditable="true"] {
+  display: block;
+}
+.pa_edit span:first-of-type{
+  float: left; 
 }
 .table thead th {
   background-color: #d0d4d7;
   border-bottom: 2px solid black;
   border: 2px solid black;
   padding: 0px 5px;
-  text-align: left ;
+  text-align: left;
   font-family: Woodstamp;
 }
+
 .table-bordered td {
   border: 2px solid black;
   text-align: left;
   padding: 0px 5px;
   height: auto;
 }
+
 body .nsc_table .item_image {
-  width: 100%; 
+  width: 100%;
   padding: 5px 2px;
 }
-.nsc_skill{
+
+.nsc_skill {
   position: relative;
 }
-.nsc_notes{
-  height: 69px !important; 
+
+.nsc_notes {
+  height: 53px !important;
 }
+
 .nsc_notes .half_table {
   height: 100%;
 }
@@ -439,6 +534,7 @@ body .nsc_table .item_image {
   border-style: dashed;
   background-color: rgb(191 66 22 / 0.25);
 }
+
 #trash span {
   font-family: Woodstamp;
   font-size: 25px;
@@ -449,7 +545,7 @@ body .nsc_table .item_image {
   display: block;
 }
 
-#trash > div {
+#trash>div {
   padding-top: 10px;
 }
 
@@ -462,60 +558,69 @@ body .nsc_table .item_image {
   position: absolute;
   background-color: white;
   padding: 30px;
-  position: absolute; 
+  position: absolute;
   left: 50%;
   transform: translate(-50%, 0);
-  top: 50px; 
-  margin-left: auto; 
-  margin-right: auto; 
+  top: 50px;
+  margin-left: auto;
+  margin-right: auto;
   min-width: 700px;
   z-index: 2;
 }
+
 .dialog .row,
 .dialog input {
-margin-bottom: 15px; 
+  margin-bottom: 15px;
 }
-.dialog [type=radio] { 
+
+.dialog [type=radio] {
   position: absolute;
   opacity: 0;
   width: 0;
   height: 0;
 }
-.dialog [type=radio] + img {
+
+.dialog [type=radio]+img {
   cursor: pointer;
 }
-.dialog [type=radio]:checked + img {
+
+.dialog [type=radio]:checked+img {
   outline: 2px solid #8cad45;
 }
+
 div#black_overlay {
   position: fixed;
   width: 100%;
   background-color: rgb(0 0 0 / 70%);
   top: 0px;
   height: 100%;
-  z-index: 1;  
+  z-index: 1;
   left: 0px;
 }
+
 a.close_dialog {
   color: black;
 }
 
 a.close_dialog:hover {
-    opacity: 0.7;
+  opacity: 0.7;
 }
 
 /**
 * SKILLS  
 **/
-.item_image{
-  width: 80px; 
-  max-width: 100%; 
+.item_image {
+  width: 80px;
+  max-width: 100%;
   margin: 0px auto;
-  text-align: center; ;
+  text-align: center;
+  ;
 }
+
 .dungeonslayer-content .item_text,
-.dungeonslayer-content .item_title{
-  text-align:center;
+.dungeonslayer-content .item_title {
+  text-align: center;
+  word-break: break-all;
 }
 
 
@@ -533,11 +638,13 @@ div#footer {
   margin-bottom: -10px;
   text-align: left;
 }
-#footer a{
+
+#footer a {
   color: black;
   text-decoration: underline;
 }
-.content_container{
+
+.content_container {
   background-color: #e7e7e7;
   padding: 20px;
 }
@@ -546,20 +653,17 @@ div#footer {
 * OTHER STUFF  
 **/
 .top-items-edit .newWidget {
-  width:100%;
+  width: 100%;
 }
+
 .actions {
   position: absolute;
   position: fixed;
   right: 0px;
   z-index: 1;
 }
+
 .actions a.btn {
   padding: 2px 15px;
   background-color: #879278;
 }
-
-
-
-
-

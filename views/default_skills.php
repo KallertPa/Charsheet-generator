@@ -16,7 +16,7 @@ foreach($default_skills as $skill){ ?>
             <div class="added_item skill_item">
                 <?php if(isset($skill['img'])){ ?>
                     <div class="skill_edit"  contenteditable="true"></div>
-                    <div class="item_image"><img src="/assets/img/<?=$skill['img']; ?>"></div>
+                    <div class="item_image"><img src="/assets/img/icons/<?=$skill['img']; ?>"></div>
                 <?php } ?>
                 <?php if(isset($skill['title'])){ ?>
                     <div class="item_title"><?=$skill['title']; ?></div>

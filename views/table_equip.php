@@ -15,42 +15,42 @@
         </thead>
         <tbody>
             <tr>
-                <td class="" contenteditable="true"><img src="/assets/img/clothing/helmet.png" /></td>
+                <td class="with_image" ><img src="/assets/img/clothing/helmet.png" /><span contenteditable="true"></span></td>
                 <td class=" pa_edit" contenteditable="true"></td>
                 <td class="" contenteditable="true"></td>
             </tr>
             <tr>
-                <td class="" contenteditable="true"><img src="/assets/img/clothing/armour.png" /></td>
-                <td class=" strong pa_edit" contenteditable="true">+</td>
+                <td class="with_image"><img src="/assets/img/clothing/armour.png" /><span contenteditable="true"></span></td>
+                <td class=" strong pa_edit"><span>+</span><span  contenteditable="true"></span></td>
                 <td class="" contenteditable="true"></td>
             </tr>
             <tr>
-                <td class="" contenteditable="true"><img src="/assets/img/clothing/gauntlet.png" /></td>
-                <td class=" strong pa_edit" contenteditable="true">+</td>
+                <td class="with_image"><img src="/assets/img/clothing/gauntlet.png" /><span contenteditable="true"></span></td>
+                <td class=" strong pa_edit"><span>+</span><span  contenteditable="true"></span></td>
                 <td class="" contenteditable="true"></td>
             </tr>
             <tr>
-                <td class="" contenteditable="true"><img src="/assets/img/clothing/boots.png" /></td>
-                <td class=" strong pa_edit" contenteditable="true">+</td>
+                <td class="with_image"><img src="/assets/img/clothing/boots.png" /><span contenteditable="true"></span></td>
+                <td class=" strong pa_edit"><span>+</span><span  contenteditable="true"></span></td>
                 <td class="" contenteditable="true"></td>
             </tr>
             <tr>
-                <td class="" contenteditable="true"><img src="/assets/img/clothing/shield.png" /></td>
-                <td class=" strong pa_edit" contenteditable="true">+</td>
+                <td class="with_image"><img src="/assets/img/clothing/shield.png" /><span contenteditable="true"></span></td>
+                <td class=" strong pa_edit"><span>+</span><span  contenteditable="true"></span></td>
                 <td class="" contenteditable="true"></td>
             </tr>
             <tr>
-                <td class="" contenteditable="true"><img src="/assets/img/clothing/cloak.png" /></td>
-                <td class=" strong pa_edit" contenteditable="true">+</td>
+                <td class="with_image"><img src="/assets/img/clothing/cloak.png" /><span contenteditable="true"></span></td>
+                <td class=" strong pa_edit"><span>+</span><span  contenteditable="true"></span></td>
                 <td class="" contenteditable="true"></td>
             </tr>
             <tr>
                 <td class="" contenteditable="true"></td>
-                <td class=" strong pa_edit" contenteditable="true">+</td>
+                <td class=" strong pa_edit"><span>+</span><span  contenteditable="true"></span></td>
                 <td class="" contenteditable="true"></td>
             </tr>
             <tr>
-                <td class="  woodstamp back_gray text-right" contenteditable="true">PA-Summe</td>
+                <td class="  woodstamp back_gray text-right">PA-Summe</td>
                 <td class=" strong pa_result" contenteditable="true">=</td>
                 <td class="" contenteditable="true"></td>
             </tr>

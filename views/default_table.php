@@ -7,8 +7,8 @@
 
 ?>
 
-<div id="table" class="table-editable">
-    <table class="table table-bordered table-responsive-md text-left">
+<div class="table-editable">
+    <table class="variable_height table table-bordered table-responsive-md text-left">
         <thead>
             <tr>
             <?php foreach( $table_header as $h =>$header){ ?>
