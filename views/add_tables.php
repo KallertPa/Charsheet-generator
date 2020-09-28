@@ -1,7 +1,3 @@
-
-<div class="col-md-12 text-left table-add-container ">
-    <p><strong>Tipp:</strong> Mit Rechtsklick können Tabelleninhalte bearbeitet werden</p>
-</div>
 <div class="col-md-12 text-right table-add-container ">
     <span class="table-add "><a href="#!" class="text-success"><i class="fas fa-plus-square"
                 aria-hidden="true"></i> Reihe hinzufügen</a></span>

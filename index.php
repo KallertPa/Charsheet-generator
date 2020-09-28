@@ -8,7 +8,8 @@
  * @author     kallertp@gmail.com
  */
 
-
+//version for styles and scripts 
+$version = 1.1; 
 
 require('params.php'); 
 ?>
@@ -39,8 +40,8 @@ require('params.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.6.9/shim.min.js"></script>
     <script src="/assets/js/gridstack.all.js"></script>
     <link rel="stylesheet" href="/assets/css/fontawsome/css/all.css" />
-    <link rel="stylesheet" href="/assets/css/style.css?v=1" />
-    <link rel="stylesheet" href="/assets/css/print.css?v=1" />
+    <link rel="stylesheet" href="/assets/css/style.css?v=<?php echo $version ?>" />
+    <link rel="stylesheet" href="/assets/css/print.css?v=<?php echo $version ?>" />
 </head>
 
 <body>
@@ -63,9 +64,16 @@ require('params.php');
             </div>
         </div>
         <div class="content_container">
+            <div class="switch_absolute">
+                <label class="switch">
+                    <input type="checkbox" class="checkbox" id="auto_calc">
+                    <span class="slider round"></span>
+                </label>Werte automatisch berechnen
+            </div>
             <div class="row">
+               
                 <div class="col-sm-6 d-print-none" id="page_1">
-                    <h2 class="page_title  ">Seite 1</h2>
+                    <h2 class="page_title">Seite 1</h2>
                 </div>
                 <div class="col-sm-6 d-print-none"></div>
                 <div class="col-sm-6 col-md-6 dungeonslayer-content">
@@ -156,39 +164,76 @@ require('params.php');
 
                 <div class="col-sm-6 d-none d-md-block edit_stuff">
                     <div class="row top-items-edit  d-print-none ">
-                        <div class="col-md-12 area_toggle" data-toggle="add-skill">
-                            <h3 class="first_element">Fähigkeiten hinzufügen</h3>
+                        <div class="col-md-12 area_toggle" data-toggle="help">
+                            <h3 class="first_element">Hilfe - wie funktioniert das?</h3>
                         </div>
 
-                        <div class="col-md-4 add-skill">
-                            <div class="grid-stack-item top-button">
-
-                                <a href="#" class="open_dialog full_width btn" data-dialog="skill">
-                                    <i class="fas fa-plus"></i>
-                                    <span>Fähigkeit</span>
-                                </a>
-
-                            </div>
-
+                        <div class="col-md-12 help">
+                            <ul>
+                                <li>Die verschiedenen Tabellen und Elemente können von der Rechten Seite auf das Charakterblatt gezogen werden</li>
+                                <li>Die Elemente können größer und kleiner gezogen werden. Bei Tabellen werden dann auch Zeilen hinzugefügt und entfernt</li>
+                                <li>Grau hinterlegte Felder können mit Rechtsklick bearbeitet werden, Tabellenüberschriften auch </li>
+                                <li>Zum Drucken einfach die Funktion vom Browser verwenden (Str+P)</li>
+                            </ul>
                         </div>
-                        <div class="col-md-2 add-skill">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12 area_toggle" data-toggle="add-skill">
+                                    <h3>Fähigkeiten hinzufügen</h3>
+                                </div>
 
-                            <div class="text-center newWidget grid-stack-item " data-gs-width="2" data-gs-height="3">
-                                <div class=" grid-stack-item-content no_padding">
-                                    <div class="added_item skill_item">
-                                        <div class="skill_edit" contenteditable="true"></div>
-                                        <div class="item_image"><img src="./assets/img/icons/melee-attack.png"></div>
-                                        <div class="item_title">Überschrift</div>
-                                        <div class="item_text">Attribute</div>
+                                <div class="col-md-6 add-skill">
+                                    <div class="grid-stack-item top-button">
+
+                                        <a href="#" class="open_dialog full_width btn" data-dialog="skill">
+                                            <i class="fas fa-plus"></i>
+                                            <span>Fähigkeit</span>
+                                        </a>
+
                                     </div>
 
                                 </div>
+                                <div class="col-md-6 add-skill">
+
+                                    <div class="text-center newWidget grid-stack-item " data-gs-width="2" data-gs-height="3">
+                                        <div class=" grid-stack-item-content no_padding">
+                                            <div class="added_item skill_item">
+                                                <div class="skill_edit" contenteditable="true"></div>
+                                                <div class="item_image"><img src="./assets/img/icons/melee-attack.png"></div>
+                                                <div class="item_title">Überschrift</div>
+                                                <div class="item_text">Attribute</div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-md-6 add-skill">
-                            <p><strong>Tipp:</strong> Die Fähigkeit kann per Drag & Drop in das Sheet verschoben werden
-                            </p>
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-12 hide_icon area_toggle" data-toggle="change_fonts" >
+                                    <h3 class="">Schrift</h3>
+                                </div>
+
+                                <? require('views/add_font.php');?>
+                                <style>
+                                    <?php
+                                    //load all files in the dialog view
+                                    foreach (glob("assets/fonts/*.ttf") as $filename) { 
+                                        $file_stuff = ['assets/fonts/', '-Regular', '.ttf']; 
+                                        $name = str_replace($file_stuff, '', $filename); ?>
+                                        @font-face {
+                                            font-family: <?php echo $name ?>;
+                                            src: url(/<?php echo $filename ?>)
+                                        }
+                                        .<?php echo $name ?>{ font-family:  <?php echo $name ?>}
+                                    <?php } ?>
+                                </style>
+                            </div>
                         </div>
+
+                        
                         <div class="col-md-12 area_toggle" data-toggle="table-add-container">
                             <h3 class="">Tabelle hinzufügen</h3>
                         </div>
@@ -200,25 +245,6 @@ require('params.php');
 
                         <? require('views/add_custom.php');?>
 
-
-                        <div class="col-md-12 hide_icon area_toggle" data-toggle="change_fonts" >
-                            <h3 class="">Schrift</h3>
-                        </div>
-
-                        <? require('views/add_font.php');?>
-                        <style>
-                            <?php
-                            //load all files in the dialog view
-                            foreach (glob("assets/fonts/*.ttf") as $filename) { 
-                                $file_stuff = ['assets/fonts/', '-Regular', '.ttf']; 
-                                $name = str_replace($file_stuff, '', $filename); ?>
-                                @font-face {
-                                    font-family: <?php echo $name ?>;
-                                    src: url(/<?php echo $filename ?>)
-                                }
-                                .<?php echo $name ?>{ font-family:  <?php echo $name ?>}
-                            <?php } ?>
-                        </style>
                         <div class="col-md-12 area_toggle" data-toggle="remove-container">
                             <h3 class="">Elemente entfernen</h3>
                         </div>
@@ -403,11 +429,11 @@ require('params.php');
         <div class="col-sm-6 d-print-none"></div>
         <div class="row d-print-none" id="footer">
             <div class="col-md-12 text-center">
-                <a href="/impressum.php">Impressum</a>
+                <a href="/credits.php">Credits</a>
             </div>
         </div>
     </div>
-    <script src="./assets/js/script.js?v=1"></script>
+    <script src="./assets/js/script.js?v=<?php echo $version ?>"></script>
 </body>
 
 </html>

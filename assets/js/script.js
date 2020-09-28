@@ -1,4 +1,24 @@
 $(document).ready(function () {
+
+
+/**
+ * Automatic calculation
+ */
+  var automatic_calculation = false; 
+
+  function ChangeAutoCalc(new_calc){
+    automatic_calculation = new_calc; 
+  }
+
+
+  $('#auto_calc').on('change',function(e) {
+    var new_calc = !automatic_calculation; 
+    ChangeAutoCalc(new_calc); 
+    if(automatic_calculation){
+      calculatePA(); 
+      calculateSkills(); 
+    }
+  }); 
 /**
  * Popup Window functions 
  */
@@ -124,7 +144,9 @@ $('.area_toggle').on('click',function(e){
  * On Attributes edit calculate the Skills 
  */
   $(document).on( 'input','.dungeonslayer-content .attrib_edit', function(){
-    calculateSkills(); 
+    if (automatic_calculation) {
+      calculateSkills(); 
+    }
   }); 
 
 
@@ -142,6 +164,11 @@ $('.area_toggle').on('click',function(e){
 
         // get the Equipment value 
         attribs['pa'] = parseInt($('.dungeonslayer-content .pa_result').text()); 
+        if(Number.isNaN(attribs['pa'])) {
+          attribs['pa'] = "0"; 
+          
+        }
+        console.log(attribs);
         $('.dungeonslayer-content .skill_item').each(function(){
           //workaround for problem with geist und geschick: usually first replaces the ge and then the gei is not replaced. Now rename gei to sk
           var value = $(this).children('.item_text').text().toLowerCase().replace('ä', 'a').replace('ö', 'o').replace('gei', 'sk');
@@ -153,6 +180,8 @@ $('.area_toggle').on('click',function(e){
               }
             }          
           };
+          
+          console.log(new_v); 
           try {
             old_v = new_v;   
             //for the perception: replace the 8 
@@ -195,7 +224,6 @@ $('.area_toggle').on('click',function(e){
               }
             }          
           };
-          console.log(new_v);
           try {
             old_v = new_v;   
             var res = eval(new_v); 
@@ -219,16 +247,24 @@ $('.area_toggle').on('click',function(e){
  * On edit the Equipment table, calculate total equipment stats  
  */
   $(document).on('input','.dungeonslayer-content .pa_edit', function(){
-    var total = 0; 
-    $('.dungeonslayer-content .pa_edit').each(function(){
-      var text = parseInt($(this).text()); 
-      if(typeof(text) == "number" && text > 0){
-        total += text; 
-      }
-    }); 
-    $('.dungeonslayer-content .pa_result').text(total);
-    calculateSkills(); 
+    if (automatic_calculation) {
+      calculatePA(); 
+      calculateSkills(); 
+    }
   }); 
+
+  function calculatePA(){
+    var total = 0; 
+      $('.dungeonslayer-content .pa_edit').each(function(){
+        var text = parseInt($(this).text()); 
+        if(typeof(text) == "number" && text > 0){
+          total += text; 
+        }
+      });
+      if(total > 0){ 
+        $('.dungeonslayer-content .pa_result').text(total);
+      }
+  }
 
 /**
  * Initiate the grid 
@@ -295,7 +331,9 @@ $('#third-grid, #second-grid, #advanced-grid').on('change', function(event, item
       appendTo: 'body',
       helper: 'clone', 
       stop: function(event, GridStackUI){
-        calculateSkills(); 
+        if (automatic_calculation) {
+          calculateSkills(); 
+        }
         $('.skill_edit').bind("contextmenu", function(e) {
           e.preventDefault();
           return false;
@@ -328,69 +366,65 @@ $('#third-grid, #second-grid, #advanced-grid').on('change', function(event, item
  * https://github.com/gridstack/gridstack.js/blob/115c3d259c0cba3188644983d20c45eb1cf6de63/demo/serialization.html
  */
 
-var saveData = (function () {
-  var a = document.createElement("a");
-  document.body.appendChild(a);
-  a.style = "display: none";
-  return function (data, fileName) {
-      var json = JSON.stringify(data),
-          blob = new Blob([json], {type: "octet/stream"}),
-          url = window.URL.createObjectURL(blob);
-      a.href = url;
-      a.download = fileName;
-      a.click();
-      window.URL.revokeObjectURL(url);
-  };
-}());
+  var saveData = (function () {
+    var a = document.createElement("a");
+    document.body.appendChild(a);
+    a.style = "display: none";
+    return function (data, fileName) {
+        var json = JSON.stringify(data),
+            blob = new Blob([json], {type: "octet/stream"}),
+            url = window.URL.createObjectURL(blob);
+        a.href = url;
+        a.download = fileName;
+        a.click();
+        window.URL.revokeObjectURL(url);
+    };
+  }());
 
-$('#json_file').on('change', function(){
-  var file = this.files[0];
-  var fr = new FileReader();
-  fr.onload = function() {
-      console.log("Done");
-      $('#output').text(fr.result);
-  };
-  fr.onerror = function() {
-      console.log("Error reading the file");
-  };
-  console.log("Reading...");
-  fr.readAsText(file);
-}); 
+  $('#json_file').on('change', function(){
+    var file = this.files[0];
+    var fr = new FileReader();
+    fr.onload = function() {
+        console.log("Done");
+        $('#output').text(fr.result);
+    };
+    fr.onerror = function() {
+        console.log("Error reading the file");
+    };
+    console.log("Reading...");
+    fr.readAsText(file);
+  }); 
 
 
   
   this.saveGrid = function () {
-      first_page = $('#advanced-grid.grid-stack > .grid-stack-item:visible').map(function (i, el) {
-        el = $(el);
-        var node = el.data('_gridstack_node');
-        console.log(el.html());
-        return {
-          x: node.x,
-          y: node.y,
-          width: node.width,
-          height: node.height, 
-          html: el.html()
-        };
-      }).toArray();
-      second_page = $('#second-grid.grid-stack > .grid-stack-item:visible').map(function (i, el) {
-        el = $(el);
-        var node = el.data('_gridstack_node');
-        console.log(el.html());
-        return {
-          x: node.x,
-          y: node.y,
-          width: node.width,
-          height: node.height, 
-          html: el.html()
-        };
-      }).toArray();
+    
+    var first_page = gridToJson('advanced-grid');
+    var second_page = gridToJson('second-grid');
+    var third_page = gridToJson('third-grid');
 
-      var total = [first_page, second_page]; 
+      var total = [first_page, second_page, third_page, automatic_calculation]; 
       var data = JSON.stringify(total, null, '  '); 
 
       saveData(data, 'export_characters.json');
       return false;
     }.bind(this);
+
+    function gridToJson(name){
+      result = $('#'+name+'.grid-stack > .grid-stack-item:visible').map(function (i, el) {
+        el = $(el);
+        var node = el.data('_gridstack_node');
+        console.log(el.html());
+        return {
+          x: node.x,
+          y: node.y,
+          width: node.width,
+          height: node.height, 
+          html: el.html()
+        };
+      }).toArray();
+      return result; 
+    }
 
     this.loadGrid = function () {
 
@@ -398,10 +432,19 @@ $('#json_file').on('change', function(){
       var data = JSON.parse(serializedData); 
       var data = JSON.parse(data); 
 
-      first_grid = $('#advanced-grid.grid-stack').data('gridstack');
+      console.log(data); 
+      loadDataToGrid('advanced-grid', data[0]); 
+      loadDataToGrid('second-grid', data[1]); 
+      loadDataToGrid('third-grid', data[2]); 
+      close_dialog(); 
+      return false;
+    }.bind(this);
+
+    function loadDataToGrid(name, data){
+      first_grid = $('#'+name+'.grid-stack').data('gridstack');
 
       first_grid.removeAll();
-      var items = GridStackUI.Utils.sort(data[0]);
+      var items = GridStackUI.Utils.sort(data);
       first_grid.batchUpdate();
       items.forEach(function (node) {
         var html =  $($.parseHTML('<div>'+node.html+'</div>')); 
@@ -409,22 +452,8 @@ $('#json_file').on('change', function(){
         first_grid.addWidget(html, node);
       }, this);
       first_grid.commit();
+    }
 
-      second_grid = $('#second-grid.grid-stack').data('gridstack');
-
-      second_grid.removeAll();
-      var items = GridStackUI.Utils.sort(data[1]);
-      second_grid.batchUpdate();
-      items.forEach(function (node) {
-        var html =  $($.parseHTML('<div>'+node.html+'</div>')); 
-        second_grid.addWidget(html, node);
-      }, this);
-      second_grid.commit();
-
-
-      close_dialog(); 
-      return false;
-    }.bind(this);
     $('#load_data').click(this.loadGrid); 
     $('#save_grid').click(this.saveGrid);
 

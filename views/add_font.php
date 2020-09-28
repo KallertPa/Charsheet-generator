@@ -1,4 +1,4 @@
-<div class="col-md-3 change_fonts" style="display: none;">
+<div class="col-md-12 change_fonts" style="display: none;">
   <div><span class="strong">Schriftart der Seite</span></div>
 
   <select name="font" id="fonts">
@@ -11,12 +11,12 @@
     <?php } ?>
   </select>
 </div>
-<div class="col-md-4 change_fonts" style="display: none;">
+<div class="col-md-12 change_fonts" style="display: none;">
   <div><span class="strong">Textfarbe ändern</span></div>
   <div class="pickr-container"></div>
   <a href="#" id="change_color" class=""text-succcess><i class="fas fa-fill-drip"></i>Auswahl einfärben </a>
 </div>
-<div class="col-md-5 change_fonts" style="display: none;">
+<div class="col-md-12 change_fonts" style="display: none;">
   <div><span class="strong">Schriftart der Auswahl</span></div>
 
   <select name="font" id="font_selection">
@@ -30,5 +30,3 @@
   </select>
   <a href="#" id="change_font" class=""text-succcess><i class="fas fa-pen-fancy"></i>Auswahl ändern </a>
 </div>
-<div class="col-md-12 change_fonts" style="display: none;">
-      </div>

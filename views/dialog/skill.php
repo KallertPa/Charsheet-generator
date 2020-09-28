@@ -7,10 +7,12 @@
       foreach (glob("assets/img/icons/*") as $filename) { 
           $file_stuff = ['assets/img/icons']; 
           $name = str_replace($file_stuff, '', $filename); ?>
-          <label class="col-sm-1">
-            <input type="radio" name="icon" value="<?php echo $name ?>">
-            <img src="./assets/img/icons/<?php echo $name ?>">
-        </label>
+          <div class="col-sm-1 p-0">
+            <label class="p-1">
+                <input type="radio" name="icon" value="<?php echo $name ?>">
+                <img src="./assets/img/icons/<?php echo $name ?>">
+            </label>
+        </div>
     <?php } ?>
     
 </div>

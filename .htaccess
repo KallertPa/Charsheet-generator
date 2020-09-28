@@ -1,0 +1,5 @@
+AuthUserFile /www/htdocs/w0182e0b/dungeonslayer/.htpasswd
+AuthGroupFile /dev/null
+AuthName 'bitte Zugangsdaten eingeben'
+AuthType Basic
+require valid-user
