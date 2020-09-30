@@ -44,6 +44,9 @@ div#second-grid:after,
 div#advanced-grid:after {
   display: none;
 }
+.show_on_hover{
+  display: none !important;
+}
   .second_content{
     margin-top: 0px; 
   }

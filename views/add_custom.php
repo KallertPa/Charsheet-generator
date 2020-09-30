@@ -26,7 +26,7 @@
 <?php // Lifebar ?>
 <div class="col-md-1 extra_table_elements fix_height" style="display: none;">
     <div class="newWidget grid-stack-item " data-gs-width="2" data-gs-height="28">
-        <div class="grid-stack-item-content no_padding bg-white text-center">
+        <div class="grid-stack-item-content no_padding bg-white text-center lifebar">
             <img src="./assets/img/lifebar.png" />
         </div>
     </div>
@@ -34,7 +34,7 @@
 <?php // Big Lifebar ?>
 <div class="col-md-1 extra_table_elements fix_height" style="display: none;">
     <div class="newWidget grid-stack-item " data-gs-width="2" data-gs-height="28">
-        <div class="grid-stack-item-content no_padding bg-white text-center">
+        <div class="grid-stack-item-content no_padding bg-white text-center lifebar">
             <img src="./assets/img/lifebar_big.png" />
         </div>
     </div>

@@ -1,528 +1,366 @@
 $(document).ready(function () {
 
+    /**
+     * Initiate the grid 
+     */
+    var options = {
+        removable: '#trash',
+        removeTimeout: 100,
+        acceptWidgets: true,
+        verticalMargin: 0,
+        cellHeight: 'auto',
+        float: true
+    };
 
-/**
- * Automatic calculation
- */
-  var automatic_calculation = false; 
+    $('#advanced-grid').gridstack(options);
 
-  function ChangeAutoCalc(new_calc){
-    automatic_calculation = new_calc; 
-  }
+    $('#second-grid').gridstack(options);
+    $('#third-grid').gridstack(options);
 
+    /**
+     * When changing a table, 
+     * add or remove rows 
+     */
+    $('#third-grid, #second-grid, #advanced-grid').on('change', function (event, items) {
+        var height = $(items[0].el).find('.grid-stack-item-content').outerHeight();
+        var table_height = $(items[0].el).find('table.variable_height').outerHeight();
+        var diff = height - table_height;
 
-  $('#auto_calc').on('change',function(e) {
-    var new_calc = !automatic_calculation; 
-    ChangeAutoCalc(new_calc); 
-    if(automatic_calculation){
-      calculatePA(); 
-      calculateSkills(); 
-    }
-  }); 
-/**
- * Popup Window functions 
- */
-  $('.open_dialog').on('click', function(e){
-    e.preventDefault(); 
-    var name = $(this).attr('data-dialog'); 
-    console.log(name);
-    $('.dialog').hide(); 
-    $('#dialog').show(); 
-    $('.dialog_'+name).fadeIn(); 
-    $('#black_overlay').fadeIn(); 
-    
-    $("html, body").animate({ scrollTop: 0 }, "slow");
-  }); 
-
-  $('.close_dialog').click(function(e){
-    e.preventDefault(); 
-    close_dialog(); 
-  }); 
-  function close_dialog(){
-    $('#dialog').fadeOut(); 
-    $('#black_overlay').fadeOut(); 
-  }
-
-  $('.scroll_to').click(function(e){
-    e.preventDefault(); 
-    var ele = $(this).attr('href');
-    console.log(ele);
-    $("html, body").animate({
-      scrollTop: $(ele).offset().top
-  }, 300);
-  }); 
-
-
-/**
- * Change font stuff
- */
-
-$('#fonts').on('change', function(){
-  var selected = $("#fonts :selected").val();
-  $("body").removeClass();
-  $('body').addClass(selected);
-}); 
-
-$('#change_font').click(function(e){
-  e.preventDefault(); 
-    var selected = $("#font_selection :selected").val();
-    var tr = window.getSelection().getRangeAt(0);
-    var span = document.createElement("span");
-    span.classList.add(selected);
-    tr.surroundContents(span);
-
-}); 
-const pickr = new Pickr({
-  el: '.pickr-container',
-  theme: 'classic',
-  default: '#42445a',
-  lockOpacity: true,
-  components: {
-    palette: true,
-    preview: true,
-    opacity: false,
-    hue: true,   
-    interaction: {
-        hex: false,  
-        rgba: false,
-        hsla: false, 
-        hsva: false, 
-        cmyk: false,
-        input: true,
-        cancel: false, 
-        clear: false, 
-        save: true,  
-    }
-  }
-}); 
-pickr.on('save', (color, instance) => {
-  pickr.hide();
-});
-
-$('#change_color').click(function(e){
-  e.preventDefault(); 
-    var tr = window.getSelection().getRangeAt(0);
-    var span = document.createElement("span");
-    var color = pickr.getColor(); 
-    span.style.cssText = "color:"+color.toHEXA();
-    tr.surroundContents(span);
-
-}); 
-
-
-/**
- * Toggling the view in the sidebar
- */
-
-$('.area_toggle').on('click',function(e){
-  e.preventDefault(); 
-  var ele = $(this).attr('data-toggle');
-  $('.'+ele).toggle(300, function() {
-    // Animation complete.
-  });
-  $(this).toggleClass('hide_icon'); 
-}); 
-
-/**
- * Changing the Skill in the add Skill edit 
- */
-  $('#change_image').click(function(e) {
-    e.preventDefault(); 
-    
-    var title = $('#new_item_title').val(); 
-    var text = $('#new_item_text').val(); 
-    var radioValue = $("input[name='icon']:checked"). val();
-    $('.top-items-edit .item_title').html(title); 
-    $('.top-items-edit .item_text').html(text); 
-    if(radioValue){
-        $('.top-items-edit .item_image').html('<img src="./assets/img/icons/'+radioValue+'" />');
-    } 
-    close_dialog(); 
-  }); 
-
-/**
- * On Attributes edit calculate the Skills 
- */
-  $(document).on( 'input','.dungeonslayer-content .attrib_edit', function(){
-    if (automatic_calculation) {
-      calculateSkills(); 
-    }
-  }); 
-
-
-  function calculateSkills(){
-    var attribs = [];
-
-    //get all the current attributes 
-    $('.attrib_edit').each(function(){
-      var skill = $(this).attr('data-attr'); 
-      var text = $(this).text(); 
-      attribs[skill] =text; 
-    
-      //when all the attributes have been looped through 
-      if(attribs.length = 9){
-
-        // get the Equipment value 
-        attribs['pa'] = parseInt($('.dungeonslayer-content .pa_result').text()); 
-        if(Number.isNaN(attribs['pa'])) {
-          attribs['pa'] = "0"; 
-          
-        }
-        console.log(attribs);
-        $('.dungeonslayer-content .skill_item').each(function(){
-          //workaround for problem with geist und geschick: usually first replaces the ge and then the gei is not replaced. Now rename gei to sk
-          var value = $(this).children('.item_text').text().toLowerCase().replace('ä', 'a').replace('ö', 'o').replace('gei', 'sk');
-          var new_v = value;  
-          for (key in attribs) {
-            if( value.indexOf(key) >= 0){
-              if(attribs[key]){              
-                new_v = new_v.replace(key, attribs[key]); 
-              }
-            }          
-          };
-          
-          console.log(new_v); 
-          try {
-            old_v = new_v;   
-            //for the perception: replace the 8 
-            new_v = new_v.replace('oder 8', ''); 
-            var res = eval(new_v); 
-            if(typeof(res) == "number" && res > 0){
-              
-              if(old_v.indexOf('oder 8') >= 0 && res < 8){
-                res = 8; 
-              }
-              $(this).children('.skill_edit').text(res); 
+        //add rows if it is higher 
+        if (diff > 0) {
+            var amount = Math.floor(diff / 17);
+            for (i = 0; i < amount; i++) {
+                const $clone = $(items[0].el).find('tbody tr').last().clone(true).removeClass('hide table-line');
+                $clone.find('td').text('');
+                $(items[0].el).find('table.variable_height').append($clone);
             }
-          } catch (e) {
-          }
-
-        });
-      }
-    });
-  }
-
-  $(document).on( 'input','.dungeonslayer-content .nsc_attrib_edit', function(){
-    var attribs = [];
-
-    //get all the current attributes 
-    $(this).closest('.dungeonslayer-content').find('.nsc_attrib_edit').each(function(){
-      var skill = $(this).attr('data-attr'); 
-      var text = $(this).text(); 
-      attribs[skill] =text; 
-    
-      //when all the attributes have been looped through 
-      if(attribs.length = 11){
-        $(this).closest('.dungeonslayer-content').find('.nsc_skill').each(function(){
-          //workaround for problem with geist und geschick: usually first replaces the ge and then the gei is not replaced. Now rename gei to sk
-          var value = $(this).children('.skill_edit').attr('data-calc');
-          var new_v = value;  
-          for (key in attribs) {
-            if( value.indexOf(key) >= 0){
-              if(attribs[key]){              
-                new_v = new_v.replace(key, attribs[key]); 
-              }
-            }          
-          };
-          try {
-            old_v = new_v;   
-            var res = eval(new_v); 
-            
-            if(typeof(res) == "number" && res > 0){
-
-              $(this).children('.skill_edit').text(res); 
+            //remove rows if it is smaller
+        } else if (diff < 0) {
+            var amount = Math.ceil(Math.abs(diff) / 17);
+            for (i = 0; i < amount; i++) {
+                $(items[0].el).find('tbody tr').last().detach();
             }
-          } catch (e) {
-          }
-
-        });
-      }
+        }
     });
-  }); 
 
 
-
-
-/** 
- * On edit the Equipment table, calculate total equipment stats  
- */
-  $(document).on('input','.dungeonslayer-content .pa_edit', function(){
-    if (automatic_calculation) {
-      calculatePA(); 
-      calculateSkills(); 
-    }
-  }); 
-
-  function calculatePA(){
-    var total = 0; 
-      $('.dungeonslayer-content .pa_edit').each(function(){
-        var text = parseInt($(this).text()); 
-        if(typeof(text) == "number" && text > 0){
-          total += text; 
+    $('.newWidget').draggable({
+        revert: 'invalid',
+        scroll: false,
+        appendTo: 'body',
+        helper: 'clone',
+        stop: function (event, GridStackUI) {
+            if (window.automatic_calculation) {
+                calculateSkills();
+            }
+            $('.skill_edit').bind("contextmenu", function (e) {
+                e.preventDefault();
+                return false;
+            });
         }
-      });
-      if(total > 0){ 
-        $('.dungeonslayer-content .pa_result').text(total);
-      }
-  }
-
-/**
- * Initiate the grid 
- */
-
-  var $grid = $('#advanced-grid').gridstack({
-      removable: '#trash',
-      removeTimeout: 100,
-      acceptWidgets: true,
-      verticalMargin: 0,
-      cellHeight: 'auto',
-      float : true
-
-  });
-
-  var $grid = $('#second-grid').gridstack({
-    removable: '#trash',
-    removeTimeout: 100,
-    acceptWidgets: true,
-    verticalMargin: 0,
-    cellHeight: 'auto',
-    float : true
-
-});
-$('#third-grid').gridstack({
-  removable: '#trash',
-  removeTimeout: 100,
-  acceptWidgets: true,
-  verticalMargin: 0,
-  cellHeight: 'auto',
-  float : true
-});
-
-$('#third-grid, #second-grid, #advanced-grid').on('change', function(event, items) {
-  console.log(items[0].el);
-   var height = $(items[0].el).find('.grid-stack-item-content').outerHeight(); 
-   var table_height = $(items[0].el).find('table.variable_height').outerHeight(); 
-   var diff = height - table_height; 
-   if(diff > 0){
-     var amount = Math.floor(diff/17); 
-     for (i = 0; i < amount; i++) {
-      const $clone =  $(items[0].el).find('tbody tr').last().clone(true).removeClass('hide table-line');
-      $clone.find('td').text(''); 
-
-      $(items[0].el).find('table.variable_height').append($clone);
-     }
-     
-     console.log('added '+amount);
-   } else if(diff < 0){
-      var amount = Math.ceil(Math.abs(diff)/17); 
-      for (i = 0; i < amount; i++) {
-        $(items[0].el).find('tbody tr').last().detach();
-      }
-   }
-
-
-});
-
-
-
-  $('.newWidget').draggable({
-      revert: 'invalid',
-      scroll: false,
-      appendTo: 'body',
-      helper: 'clone', 
-      stop: function(event, GridStackUI){
-        if (automatic_calculation) {
-          calculateSkills(); 
-        }
-        $('.skill_edit').bind("contextmenu", function(e) {
-          e.preventDefault();
-          return false;
+    }).click(function () {
+        $(this).draggable({
+            disabled: false
         });
-      }
-  }).click(function() {
-      $(this).draggable({ disabled: false });
-  }).dblclick(function() {
-      $(this).draggable({ disabled: true });
-  }).bind("contextmenu", function(e) {
-      e.preventDefault();
-  });
+    }).dblclick(function () {
+        $(this).draggable({
+            disabled: true
+        });
+    }).bind("contextmenu", function (e) {
+        e.preventDefault();
+    });
 
 
 
-/**
- * For the contenteditable
- * should be editable with right click since left click activates the drag and drop 
- */
-  $(document).on( "contextmenu", '*[contenteditable="true"]', function(e) {
-    e.preventDefault();
-    return false;
-  });
+    /**
+     * Get the grid and convert it to an array
+     * @param string name 
+     */
+    function gridToArray(name) {
+        result = $('#' + name + '.grid-stack > .grid-stack-item:visible').map(function (i, el) {
+            el = $(el);
+            var node = el.data('_gridstack_node');
+            return {
+                x: node.x,
+                y: node.y,
+                width: node.width,
+                height: node.height,
+                html: el.html()
+            };
+        }).toArray();
+        return result;
+    }
 
 
+    /**
+     * Load the data array to the grid 
+     * 
+     * @param string name 
+     * @param array data 
+     */
+    function loadDataToGrid(name, data) {
+        first_grid = $('#' + name + '.grid-stack').data('gridstack');
 
-/**
- * Save and load the grid 
- * Gridstack github example: 
- * https://github.com/gridstack/gridstack.js/blob/115c3d259c0cba3188644983d20c45eb1cf6de63/demo/serialization.html
- */
+        first_grid.removeAll();
+        var items = GridStackUI.Utils.sort(data);
+        first_grid.batchUpdate();
+        items.forEach(function (node) {
+            var html = $($.parseHTML('<div>' + node.html + '</div>'));
+            first_grid.addWidget(html, node);
+        }, this);
+        first_grid.commit();
+    }
+    
+    
+    /**
+     * Export grid as JSON 
+     */
+    //trigger save on click
+    $('#export_grid').click(function () {
+        saveGrid();
+    });
 
-  var saveData = (function () {
-    var a = document.createElement("a");
-    document.body.appendChild(a);
-    a.style = "display: none";
-    return function (data, fileName) {
+    function saveData(data, fileName) {
+        var a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style = "display: none";
+
         var json = JSON.stringify(data),
-            blob = new Blob([json], {type: "octet/stream"}),
+            blob = new Blob([json], {
+                type: "octet/stream"
+            }),
             url = window.URL.createObjectURL(blob);
         a.href = url;
         a.download = fileName;
         a.click();
         window.URL.revokeObjectURL(url);
+
     };
-  }());
 
-  $('#json_file').on('change', function(){
-    var file = this.files[0];
-    var fr = new FileReader();
-    fr.onload = function() {
-        console.log("Done");
-        $('#output').text(fr.result);
-    };
-    fr.onerror = function() {
-        console.log("Error reading the file");
-    };
-    console.log("Reading...");
-    fr.readAsText(file);
-  }); 
+    function saveGrid() {
+
+        var first_page = gridToArray('advanced-grid');
+        var second_page = gridToArray('second-grid');
+        var third_page = gridToArray('third-grid');
+
+        var total = [first_page, second_page, third_page, window.automatic_calculation];
+        var data = JSON.stringify(total, null, '  ');
+
+        //get the last 
+        var last_saved = localStorage.getItem("last_saved");
+        var file = "export_characters.json";
+        if (last_saved) {
+            last_saved = last_saved.replace(' ', '_'); 
+            file = "export_character_" + last_saved + ".json";
+        }
+        saveData(data, file);
+        return false;
+    }
 
 
-  
-  this.saveGrid = function () {
-    
-    var first_page = gridToJson('advanced-grid');
-    var second_page = gridToJson('second-grid');
-    var third_page = gridToJson('third-grid');
+    /**
+     * Load the grid from the file 
+     */
+    //when the uploaded file is changed, put into div as json
+    $('#json_file').on('change', function () {
+        var file = this.files[0];
+        var fr = new FileReader();
+        fr.onload = function () {
+            $('#output').text(fr.result);
 
-      var total = [first_page, second_page, third_page, automatic_calculation]; 
-      var data = JSON.stringify(total, null, '  '); 
-
-      saveData(data, 'export_characters.json');
-      return false;
-    }.bind(this);
-
-    function gridToJson(name){
-      result = $('#'+name+'.grid-stack > .grid-stack-item:visible').map(function (i, el) {
-        el = $(el);
-        var node = el.data('_gridstack_node');
-        console.log(el.html());
-        return {
-          x: node.x,
-          y: node.y,
-          width: node.width,
-          height: node.height, 
-          html: el.html()
         };
-      }).toArray();
-      return result; 
-    }
+        fr.readAsText(file);
+    });
 
-    this.loadGrid = function () {
+    //when clicking the loadData button, import the grid
+    $('#load_data').click(function (e) {
+        e.preventDefault();
+        var serializedData = $('#output').text();
+        var data = JSON.parse(serializedData);
+        var data = JSON.parse(data);
 
-      var serializedData = $('#output').text();  
-      var data = JSON.parse(serializedData); 
-      var data = JSON.parse(data); 
+        loadDataToGrid('advanced-grid', data[0]);
+        loadDataToGrid('second-grid', data[1]);
+        loadDataToGrid('third-grid', data[2]);
 
-      console.log(data); 
-      loadDataToGrid('advanced-grid', data[0]); 
-      loadDataToGrid('second-grid', data[1]); 
-      loadDataToGrid('third-grid', data[2]); 
-      close_dialog(); 
-      return false;
-    }.bind(this);
-
-    function loadDataToGrid(name, data){
-      first_grid = $('#'+name+'.grid-stack').data('gridstack');
-
-      first_grid.removeAll();
-      var items = GridStackUI.Utils.sort(data);
-      first_grid.batchUpdate();
-      items.forEach(function (node) {
-        var html =  $($.parseHTML('<div>'+node.html+'</div>')); 
-        console.log(html);
-        first_grid.addWidget(html, node);
-      }, this);
-      first_grid.commit();
-    }
-
-    $('#load_data').click(this.loadGrid); 
-    $('#save_grid').click(this.saveGrid);
+        localStorage.removeItem("last_saved");
+        //change the autocalc value 
+        $('#auto_calc').prop('checked', data[3]);
+        $("#auto_calc").trigger("change");
+        $('.save_grid_local').hide(); 
+        show_success('Der Charakter wurde aus der Datei geladen'); 
+        $('#json_file').val('');
+        close_dialog();
+    });
 
 
-
-/**
- * Table edit stuff on the right side 
- * Adding rows and columns 
+/** 
+ * Load/ Save for index DB 
+ * https://developer.mozilla.org/de/docs/Web/API/IndexedDB_API/IndexedDB_verwenden
  */
-  const $tableID = $('.top-items-edit #table');
-  const newTr = `
-    <tr class="hide">
-      <td class="pt-3-half" contenteditable="true">Example</td>
-      <td class="pt-3-half" contenteditable="true">Example</td>
-      <td class="pt-3-half" contenteditable="true">Example</td>
-      <td class="pt-3-half" contenteditable="true">Example</td>
-      <td class="pt-3-half" contenteditable="true">Example</td>
-      <td class="pt-3-half">
-        <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
-        <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down" aria-hidden="true"></i></a></span>
-      </td>
-      <td>
-        <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light">Remove</button></span>
-      </td>
-    </tr>`;
-    $('.table-add').on('click', () => {
-      const $clone = $tableID.find('tbody tr').last().clone(true).removeClass('hide table-line');
-      if ($tableID.find('tbody tr').length === 0) {
-        $('tbody').append(newTr);
-      }
-      $tableID.find('table').append($clone);
-    });
-  $('.table-add-column').on('click', () => {
-      const $clone = $tableID.find('thead tr th').last().prev('th').clone(true, true);
-      $clone.insertBefore('.top-items-edit #table thead tr th.remove_in_element');
-      const $clone2 = $tableID.find('tbody tr td').last().prev('td').clone(true, true);
-      $clone2.insertBefore('.top-items-edit #table tbody tr td.remove_in_element');
-    });    
-  $('.table-remove-column').on('click', () => {
-      $tableID.find(' thead th').last().prev('th').detach();
-      $( ".top-items-edit #table tbody tr" ).each(function( index ) {
-          $( this ).find( "td" ).last().prev('td').detach();
-      }); 
+
+if (indexedDB) {
+// Database name 
+  const dbName = "dungeonslayer_chars";
   
+  var request = indexedDB.open(dbName, 1);
+  
+  request.onerror = function(event) {
+  };
+  request.onsuccess = function(event) {
+    window.db = this.result;
+    
+    fillCharHTMLfromStorage();
+
+    var last_saved = localStorage.getItem("last_saved");
+    if (last_saved) {
+        loadGridFromStorage(last_saved);
+    }
+    
+  };
+  request.onupgradeneeded = function(event) {
+    window.db = event.target.result;
+  
+    // Create an objectStore to hold information about characters 
+    var objectStore =  window.db.createObjectStore("characters", { keyPath: "name" });
+  
+    // Create an index to search customers by name.
+    objectStore.createIndex("name", "name", { unique: true });
+  
+  }; 
+
+    $('#undo_grid').click(function(e){
+        e.preventDefault(); 
+        localStorage.removeItem("last_saved");
+        location.reload();
+    }); 
+    /**
+     * Save grid in local Storage 
+     */
+
+    $('.save_grid_local').click(function (e) {
+        e.preventDefault();
+            var char_name = $('#char_name').val().toString();
+
+            if (!char_name) {
+                alert('Bitte gebe einen Characternamen an');
+                return false;
+            }
+    
+            //set the last_saved in the local storage 
+            localStorage.setItem("last_saved", char_name);
+
+            $('.char_name').text(char_name);
+            $('.save_as').show();
+
+            //get the current content and save in local storage 
+            saveHTMLToLocalStorage(char_name);
+
+            //reload the list of chars in the load window 
+            fillCharHTMLfromStorage();
+
+            close_dialog();
     });
- 
-  $tableID.on('click', '.table-remove', function () {
-    $(this).parents('tr').detach();
-  });
 
 
-/**
- * Sticky Sidebar 
- **/
-if(($(document).scrollTop() > 275)) {
-  $('.top-items-edit').removeClass('relative');
-  $('.top-items-edit').addClass('fixed');
-} else {
-  $('.top-items-edit').removeClass('fixed');
-  $('.top-items-edit').addClass('relative');
+    /**
+     * Save the HTML of the grids in the Local storage 
+     */
+    function saveHTMLToLocalStorage(char_name) {
+
+        //establish connection
+        var transaction = window.db.transaction(["characters"], "readwrite");
+        var objectStore = transaction.objectStore("characters");
+        
+        //json encode data and create array 
+        var first_page = JSON.stringify(gridToArray('advanced-grid'));
+        var second_page = JSON.stringify(gridToArray('second-grid'));
+        var third_page = JSON.stringify(gridToArray('third-grid'));
+        var data = {name: char_name, page_1: first_page, page_2: second_page, page_3: third_page, auto_calc: window.automatic_calculation}
+
+        var request = objectStore.put(data);
+        request.onsuccess = function(event) {
+
+            show_success('Der Charakter wurde gespeichert'); 
+        };
+    }
+
+
+
+    /**
+     * Fill in the List in the 'load' popup from storage
+     */
+    function fillCharHTMLfromStorage() {
+        
+        var transaction =  window.db.transaction(["characters"]);
+        var objectStore = transaction.objectStore("characters");
+        var request = objectStore.getAll();
+        request.onsuccess = function(event) {
+            $('#load_char_list').html('');
+            request.result.forEach(function (item) {
+                var o = new Option(item.name);
+                /// jquerify the DOM object 'o' so we can use the html method
+                $(o).html(item.name);
+                $("#load_char_list").append(o);
+            });
+            $('#char_list').show();
+        }
+    }
+
+    /**
+     * Load the Grid from the IndexDB
+     */
+    $('#load_local_data').click(function (e) {
+        e.preventDefault();
+        var char_name = $('#load_char_list').val();
+        loadGridFromStorage(char_name, false);
+        $('#load_char_list').val('');
+        close_dialog();
+    });
+
+    function loadGridFromStorage(char_name, auto_load = true) {
+        var transaction =  window.db.transaction(["characters"]);
+        var objectStore = transaction.objectStore("characters");
+        var request = objectStore.get(char_name);
+        request.onsuccess = function() {
+            if (char_name) {
+                
+                var page_1 = JSON.parse(request.result.page_1); 
+                var page_2 = JSON.parse(request.result.page_2); 
+                var page_3 = JSON.parse(request.result.page_3); 
+                loadDataToGrid('advanced-grid', page_1);    
+                loadDataToGrid('second-grid', page_2);    
+                loadDataToGrid('third-grid', page_3);
+    
+                //set the last used name in storage
+                localStorage.setItem("last_saved", char_name);
+
+                //change the autocalc value    
+                $('#auto_calc').prop('checked', request.result.auto_calc);
+                $("#auto_calc").trigger("change");
+
+                $('.char_name').text(char_name);
+                $('#char_name').val(char_name);
+                $('.save_as').show();
+
+                fillCharHTMLfromStorage();
+                if(auto_load){
+                    show_success('Der Charakter "'+char_name+'" wurde automatisch geladen'); 
+                } else {
+                    show_success('Der Charakter "'+char_name+'" wurde geladen'); 
+                }
+                
+            }
+            
+        }
+
+    }
+
+//if the browser does not support IndexDB 
+}else {
+    $('.open_save_dialog').hide(); 
+    $('.save_grid_local').hide(); 
+    $('#char_list').hide(); 
 }
 
-    $(window).scroll(function(){
-      if(($(document).scrollTop() > 275)) {
-              $('.top-items-edit').removeClass('relative');
-              $('.top-items-edit').addClass('fixed');
-      } else {
-              $('.top-items-edit').removeClass('fixed');
-              $('.top-items-edit').addClass('relative');
-      }
-  });
 });

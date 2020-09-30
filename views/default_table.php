@@ -20,6 +20,9 @@
                 <th class="text-left" contenteditable="true" <?=$width ?>><?=$header ?></th>
             <? } ?>
                 <th class="text-left remove_in_element">Aktionen</th>
+                <? if($show_calc){ ?>
+                    <th class="text-left calculation">Berechnung</th>
+                <? } ?>
             </tr>
         </thead>
         <tbody>
@@ -36,9 +39,14 @@
                     <td class="remove_in_element">
                         <span class="table-remove"><i class="fas fa-minus-square"></i></span>
                     </td>
+                    <? if($show_calc){ ?>
+                        <td class="calculation"  contenteditable="true">
+                        </td>
+                    <? } ?>
                 </tr>
 
             <? } ?>   
+            
         </tbody>
     </table>
 </div>

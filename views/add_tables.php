@@ -1,11 +1,7 @@
 <div class="col-md-12 text-right table-add-container ">
-    <span class="table-add "><a href="#!" class="text-success"><i class="fas fa-plus-square"
-                aria-hidden="true"></i> Reihe hinzufügen</a></span>
-    <span class="table-add-column"><a href="#!" class="text-success"><i
-                class="fas fa-plus-square" aria-hidden="true"></i> Spalte hinzufügen</a></span>
-
-    <span class="table-remove-column"><a href="#!" class="text-success"><i
-                class="fas fa-minus-square" aria-hidden="true"></i> Spalte entfernen</a></span>
+    <a href="#" class="text-success table-add" ><i class="fas fa-plus-square" aria-hidden="true"></i> Reihe hinzufügen</a>
+    <a href="#" class="text-success table-add-column"><i class="fas fa-plus-square " aria-hidden="true"></i> Spalte hinzufügen</a>
+    <a href="#" class="text-success table-remove-column"><i class="fas fa-minus-square" aria-hidden="true"></i> Spalte entfernen</a>
 </div>
 
 <div class="col-md-12 table-add-container ">
