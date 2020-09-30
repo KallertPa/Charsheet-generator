@@ -1,5 +1,10 @@
-# Offline web-based Charsheet-generator
+# web-based Charsheet-generator
 
-Work in Progress! 
+A generator for creating custom charsheets using gridstack, that can later be printed. 
 
-Generator for http://www.dungeonslayers.net/. 
+## Features 
+
+* create a custom charsheet using drag and drop
+* tables automatically add/remove rows when they are resized 
+* Tables and other fields can be edited by right click 
+* 

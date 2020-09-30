@@ -55,6 +55,7 @@ require('params.php');
     <div> Herb Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik" target="_blank">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">www.flaticon.com</a></div>
     <div> Climbing Icon made by <a href="https://www.pngitem.com/userpic/15849/" title="Gimnus" target="_blank">Gimnus</a> from <a href="https://www.pngitem.com/middle/oxmmim_rock-climber-rock-climbing-icon-free-hd-png//" title="PNGItem" target="_blank">www.pngitem.com</a></div>
     <div> Dungeonslayser Icons from <a href="https://github.com/DungeonSlayers/dungeonslayers.media" title="Dungeonylayer" target="_blank">Dungeonslayer</a> </div>
+    <div> Multiple Icons from <a href="https://game-icons.net/" title="Dungeonylayer" target="_blank">Game-icons.net</a> </div>
     
     <h2 class="page_title">Github</h2>
     <div>Check out the Code on <a href="https://github.com/KallertPa/Charsheet-generator" target="_blank">GitHub</a></div>
