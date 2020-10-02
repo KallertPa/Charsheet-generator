@@ -627,9 +627,22 @@ body .nsc_table .item_image {
 }
 table:hover .show_on_hover{
   display: table-cell;
+  background-color: #e8e8e8; 
+  width: 100px; 
+}
+.show_on_hover.not_active{
+  display:none !important; 
 }
 .show_on_hover{
   display: none;
+
+}
+.show-overflow:not(.not_active) table:hover{
+  width: calc(100% + 100px);
+}
+.dungeonslayer-content .grid-stack-item-content.show-overflow:hover {
+  overflow: visible !important;
+  z-index: 44;
 }
 
 /**

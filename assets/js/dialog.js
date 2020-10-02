@@ -36,6 +36,11 @@ $(document).ready(function () {
     $(window).scroll(function(){ 
          $('.alert').fadeOut(300); 
     }); 
+
+    $('.close').click(function(e){
+        e.preventDefault();    
+        $('.alert').fadeOut(300); 
+    }); 
 });
 
 function close_dialog() {

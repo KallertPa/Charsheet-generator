@@ -55,7 +55,22 @@ $(document).ready(function () {
     });
 
 
+    //onload get the status of the toggled stuff in sidebar and set 
+    $('.area_toggle').each(function(){
+        var ele = $(this).attr('data-toggle');
+        if (typeof localStorage !== 'undefined') {
+            if(localStorage.hasOwnProperty("toggle_"+ele)){
+                if(localStorage.getItem('toggle_'+ele)){
+                    $('div[data-toggle="'+ele+'"]').addClass('hide_icon'); 
+                    $('.' + ele).hide(); 
+                } else {
+                    $('div[data-toggle="'+ele+'"]').removeClass('hide_icon'); 
+                    $('.' + ele).show(); 
+                }
 
+            }
+        }
+    }); 
     /**
      * Toggling the views in the sidebar
      */
@@ -63,9 +78,10 @@ $(document).ready(function () {
     $('.area_toggle').on('click', function (e) {
         e.preventDefault();
         var ele = $(this).attr('data-toggle');
-        $('.' + ele).toggle(300, function () {
-            // Animation complete.
-        });
+        $('.' + ele).toggle(300, function () {});
         $(this).toggleClass('hide_icon');
+        if (typeof localStorage !== 'undefined') {
+            localStorage.setItem("toggle_"+ele, $( this ).hasClass( "hide_icon" ));
+        }
     });
 });

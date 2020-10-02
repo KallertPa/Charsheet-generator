@@ -9,7 +9,7 @@
  */
 
 //version for styles and scripts 
-$version = 1.4; 
+$version = 1.5; 
 
 require('params.php'); 
 ?>
@@ -48,7 +48,7 @@ require('params.php');
 
 
     <?php //actions that are positioned absolute at top of page  ?>
-    <div class="actions">
+    <div class="actions d-print-none">
         <a href="#page_1" class="btn scroll_to"><i class="fas fa-scroll"></i> Seite 1</a>
         <a href="#page_2" class="btn scroll_to"><i class="fas fa-scroll"></i> Seite 2</a>
         <a href="#page_3" class="btn scroll_to"><i class="fas fa-scroll"></i> Seite 3</a>
@@ -67,7 +67,7 @@ require('params.php');
     //messages for success and error messages 
     include_once('views/messages.php'); ?>
     <div class="content_container">
-        <div class="switch_absolute">
+        <div class="switch_absolute d-print-none">
             <a href="#" class="text-success open_dialog open_save_dialog" data-dialog="save">
                         <i class="fas fa-save" aria-hidden="true"></i> speichern unter</a>
             <a href="#" id="export_grid" class="text-success save_content ">
@@ -139,7 +139,7 @@ require('params.php');
                         //the equipment table ?>
                     <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="11"
                         data-gs-y="17" data-gs-width="9" data-gs-height="5">
-                        <div class="grid-stack-item-content ui-draggable-handle">
+                        <div class="grid-stack-item-content ui-draggable-handle show-overflow">
                             <div class="added_table">
                                 <?php
                                         require('views/table_equip.php'); 
@@ -154,15 +154,16 @@ require('params.php');
                         //the talent table ?>
                     <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="2"
                         data-gs-y="22" data-gs-width="9" data-gs-height="6">
-                        <div class="grid-stack-item-content ui-draggable-handle">
+                        <div class="grid-stack-item-content ui-draggable-handle show-overflow">
                             <div class="added_table">
                                 <?php 
                                     $table_header = ['Talent', 'Rang', 'Effekt'];
                                     $table_header_width = ['', '5', ''];
                                     $table_row_count = 10;  
                                     $table_default = array(); 
-
+                                    $show_calc = true;
                                     require('views/default_table.php'); 
+                                    $show_calc = false; 
                                 ?>
                             </div>
                         </div>
@@ -203,8 +204,8 @@ require('params.php');
                                 Charakterblatt gezogen werden</li>
                             <li>Die Elemente können größer und kleiner gezogen werden. Bei Tabellen werden dann auch
                                 Zeilen hinzugefügt und entfernt</li>
-                            <li>Grau hinterlegte Felder können mit Rechtsklick bearbeitet werden, Tabellenüberschriften
-                                auch </li>
+                            <li>Grau hinterlegte Felder können mit Rechtsklick bearbeitet werden, Tabellenüberschriften auch </li>
+                            <li>Wenn die automatische Berechnung aktiviert ist, können in der Rüstungs- und Talenttabellen die Werte in der Spalte 'Berechnung' geändert werden, z.b mit laufen+1 oder agi-1</li>
                             <li>Zum Drucken einfach die Funktion vom Browser verwenden (Str+P)</li>
                         </ul>
                     </div>
@@ -379,15 +380,16 @@ require('params.php');
 
                     <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="0"
                         data-gs-y="19" data-gs-width="10" data-gs-height="9">
-                        <div class="grid-stack-item-content ui-draggable-handle">
+                        <div class="grid-stack-item-content ui-draggable-handle show-overflow">
                             <div class="added_table">
                                 <?php 
                                     $table_header = ['Talent', 'Rang', 'Effekt'];
                                     $table_header_width = ['', 5, '']; 
                                     $table_row_count = 16;  
                                     $table_default = array(); 
-                                    
+                                    $show_calc = true;
                                     require('views/default_table.php'); 
+                                    $show_calc = false; 
                                 ?>
                             </div>
                         </div>

@@ -21,7 +21,7 @@
             <? } ?>
                 <th class="text-left remove_in_element">Aktionen</th>
                 <? if($show_calc){ ?>
-                    <th class="text-left calculation">Berechnung</th>
+                    <th class="text-left show_on_hover">Berechnung</th>
                 <? } ?>
             </tr>
         </thead>
@@ -40,8 +40,7 @@
                         <span class="table-remove"><i class="fas fa-minus-square"></i></span>
                     </td>
                     <? if($show_calc){ ?>
-                        <td class="calculation"  contenteditable="true">
-                        </td>
+                        <td class="show_on_hover custom_calc" contenteditable="true"></td>
                     <? } ?>
                 </tr>
 

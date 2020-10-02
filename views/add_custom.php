@@ -1,7 +1,7 @@
 <?php // Equipment Table ?>
 <div class="col-md-5 extra_table_elements" style="display: none;">
     <div class="newWidget grid-stack-item" data-gs-width="9" data-gs-height="5">
-        <div class="grid-stack-item-content ui-draggable-handle">
+        <div class="grid-stack-item-content ui-draggable-handle show-overflow">
             <div class="added_table">
                 <?php
                     require('views/table_equip.php'); 
