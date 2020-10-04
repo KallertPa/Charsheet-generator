@@ -42,6 +42,13 @@ require('params.php');
     <link rel="stylesheet" href="/assets/css/fontawsome/css/all.css" />
     <link rel="stylesheet" href="/assets/css/style.css?v=<?php echo $version ?>" />
     <link rel="stylesheet" href="/assets/css/print.css?v=<?php echo $version ?>" />
+
+    <?php
+    //load a special file for browser-specific stuff
+    $filepath = '/assets/css/'.strtolower($bname).'.css'; 
+    if (file_exists(dirname(__FILE__) . $filepath)) { ?>
+        <link rel="stylesheet" href="<?=$filepath ?>?v=<?php echo $version ?>" />
+    <?php } ?>
 </head>
 
 <body>

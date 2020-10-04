@@ -1,0 +1,74 @@
+@media print {
+.Firefox  .header_logo {
+    margin-bottom: 10px !important;
+  }
+  .Firefox .input_field{
+    margin-bottom: 10px !important; 
+  }
+  .Firefox .attrib_row{
+    margin-bottom: 15px !important;
+  }
+  .Firefox .header_middle {
+    margin-bottom: 15px; 
+  }
+  .Firefox .grid-stack{
+    height: 100% !important; 
+    margin: 0 !important; 
+    padding: 0 !important;
+    width:100% !important;
+    max-width: 100% !important; 
+    display: block !important; 
+    position: relative; 
+    border: 1px solid white; 
+  }
+  .Firefox.content_container{
+    position: absolute !important; 
+    width: 100%  !important; 
+    height: 100%  !important; 
+    border: 2px solid white; 
+  }
+  .Firefox .item_text,
+  .Firefox .header_edit,
+  .Firefox .dungeonslayer-content .table-bordered td {
+    font-size: 8pt !important;
+    line-height: 15px !important;
+  } 
+  .Firefox .table-bordered td.woodstamp,
+  .Firefox .table-bordered td .woodstamp,
+  .Firefox .table-bordered td span.woodstamp{
+    font-size: 10pt !important; 
+    line-height: 15px !important;
+  }
+  .Firefox .header_middle .details .header_edit,
+  .Firefox .nsc_skill .skill_edit,
+  .Firefox .item_title,
+  .Firefox .dungeonslayer-content .table thead th {
+    font-size: 11pt !important;
+    line-height: 20px !important; 
+  }
+
+ 
+  .Firefox .table td {
+    padding: 0px 5px 0px 5px !important;
+    height: 15px !important; 
+    line-height: 15px !important;
+    vertical-align: top;
+  }
+  .Firefox .table td.nsc_notes {
+    height: 53px !important;
+  } 
+  .Firefox .skill_edit,
+  .Firefox .attrib_edit {
+    font-size: 25px !important;
+  }
+
+  .Firefox small {
+    font-size: 5.5pt !important;
+    line-height: 8px !important;
+  }
+
+  .Firefox .attrib {
+    font-size: 35px !important;
+    line-height: 40px !important;
+  }
+}
