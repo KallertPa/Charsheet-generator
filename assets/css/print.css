@@ -1,544 +1,385 @@
-
 @media print {
-    .dungeonslayer-content .grid-stack-item-content{
-        border: 0px solid !important; 
-    }
-    .grid-stack {
-        width: 100%;
-        height: calc( 100vh - 2px ) !important;
-        page-break-after: always
-    }
-    .item_image{
-        max-width: 100%;
-        width: 100%; 
-    }
-    .content_container{
-      padding: 0px; 
-    }
-    .row {
-        padding: none;
-        margin-left: 0px !important;
-        margin-right: 0px !important;
-    }
-  .d-print-none{
-    display: none !important;
+  .dungeonslayer-content .grid-stack-item-content {
+    border: 0px solid !important;
   }
-    .col-md-6 {
-        max-width: 100%;
-        padding: 0px !important;
-        flex: 0 0 100%;
-    }
-  .grid-stack-item{
-      border: 0px solid red; 
-  }
-  .dungeonslayer-content .grid-stack-item-content{
-      box-shadow: none; 
-  }
-  td > img{
-    height: 18px; 
-  }
-  *[contenteditable="true"] {
-    background-color: transparent;
-}
-div#second-grid:after,
-div#advanced-grid:after {
-  display: none;
-}
-.show_on_hover{
-  display: none !important;
-}
-  .second_content{
-    margin-top: 0px; 
-  }
-  .nsc_notes {
-    height: 86px !important;
-}
-    body {
-        max-width: 100%;
-        margin-left: 0px;
-    }
-    .nsc_skill .skill_edit{
-     top: 21px !important; 
-    }
-    .nsc_skill .skill_edit, 
-    .header_edit, 
-    .item_title, 
-    .dungeonslayer-content .table thead th {
-        font-size: 24px;
-    }
-    
-    .table_steps_gesteigert, 
-    .table_steps_gesamt, 
-    .table_steps_half{
-      width: auto; 
-      min-width: 28px;
-    }
 
+  .grid-stack {
+    width: 100%;
+    height: calc(100vh - 2px) !important;
+    page-break-after: always
+  }
 
-    .table-bordered td.woodstamp,
-    .item_text, 
-    .table-bordered  td .woodstamp, 
-    .table-bordered  td span.woodstamp, 
-    .dungeonslayer-content .table-bordered td {
-        font-size: 20px;
-        line-height: 20px; 
-    }
-    .table td{
-        padding: 3px 5px; 
-        padding-top: 3px !important;
-        padding-bottom: 3px !important;
-        height: 26px;
-    }
-    .back_gray,
-    .table thead th {
-    background-color: #d0d4d7 !important;
-    -webkit-print-color-adjust: exact; 
-    }
-    .dungeonslayer-content  .skill_edit{
-      top: 7px; 
-    }
-    .skill_edit, 
-    .attrib_edit {
-      font-size: 40px;
-    }
-    .header_logo{
-      margin-bottom: 20px; ;
-    }
-    small {
-      font-size: 10px;
-      line-height: 10px;
-    }
-    .attrib{
-      font-size: 55px;
-      line-height: 60px;
-    }
-    .header_edit{
-      margin-bottom: 5px;
-    }
-
-    .input_field:first-child{
-      margin-top: 10px; 
-    }
-    .small_stuff .header_edit.text-center{
-      width: 40px;
-    }
-    .input_field, 
-    .attrib_row {
-      margin-bottom: 30px;
-    }
-    .grid-stack > .grid-stack-item[data-gs-y="1"] {
-        top: 3.5714285714vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="2"] {
-        top: 7.1428571429vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="3"] {
-        top: 10.7142857143vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="4"] {
-        top: 14.2857142857vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="5"] {
-        top: 17.8571428571vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="6"] {
-        top: 21.4285714286vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="7"] {
-        top: 25vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="8"] {
-        top: 28.5714285714vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="9"] {
-        top: 32.1428571429vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="10"] {
-        top: 35.7142857143vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="11"] {
-        top: 39.2857142857vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="12"] {
-        top: 42.8571428571vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="13"] {
-        top: 46.4285714286vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="14"] {
-        top: 50vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="15"] {
-        top: 53.5714285714vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="16"] {
-        top: 57.1428571429vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="17"] {
-        top: 60.7142857143vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="18"] {
-        top: 64.2857142857vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="19"] {
-        top: 67.8571428571vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="20"] {
-        top: 71.4285714286vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="21"] {
-        top: 75vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="22"] {
-        top: 78.5714285714vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="23"] {
-        top: 82.1428571429vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="24"] {
-        top: 85.7142857143vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="25"] {
-        top: 89.2857142857vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="26"] {
-        top: 92.8571428571vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="27"] {
-        top: 96.4285714286vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-y="28"] {
-        top: 100vh !important;
-      }
-    .grid-stack > .grid-stack-item {
-        min-width: 3.5714285714%;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="1"] {
-        height: 3.5714285714vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="2"] {
-        height: 7.1428571429vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="3"] {
-        height: 10.7142857143vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="4"] {
-        height: 14.2857142857vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="5"] {
-        height: 17.8571428571vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="6"] {
-        height: 21.4285714286vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="7"] {
-        height: 25vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="8"] {
-        height: 28.5714285714vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="9"] {
-        height: 32.1428571429vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="10"] {
-        height: 35.7142857143vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="11"] {
-        height: 39.2857142857vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="12"] {
-        height: 42.8571428571vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="13"] {
-        height: 46.4285714286vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="14"] {
-        height: 50vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="15"] {
-        height: 53.5714285714vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="16"] {
-        height: 57.1428571429vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="17"] {
-        height: 60.7142857143vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="18"] {
-        height: 64.2857142857vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="19"] {
-        height: 67.8571428571vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="20"] {
-        height: 71.4285714286vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="21"] {
-        height: 75vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="22"] {
-        height: 78.5714285714vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="23"] {
-        height: 82.1428571429vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="24"] {
-        height: 85.7142857143vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="25"] {
-        height: 89.2857142857vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="26"] {
-        height: 92.8571428571vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="27"] {
-        height: 96.4285714286vh !important;
-      }
-      .grid-stack > .grid-stack-item[data-gs-height="28"] {
-        height: 100vh !important;
-      }
-  
-  }
-  .grid-stack > .grid-stack-item {
-    min-width: 5%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="1"] {
-    width: 5%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="1"] {
-    left: 5%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="1"] {
-    min-width: 5%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="1"] {
-    max-width: 5%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="2"] {
-    width: 10%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="2"] {
-    left: 10%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="2"] {
-    min-width: 10%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="2"] {
-    max-width: 10%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="3"] {
-    width: 15%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="3"] {
-    left: 15%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="3"] {
-    min-width: 15%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="3"] {
-    max-width: 15%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="4"] {
-    width: 20%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="4"] {
-    left: 20%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="4"] {
-    min-width: 20%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="4"] {
-    max-width: 20%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="5"] {
-    width: 25%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="5"] {
-    left: 25%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="5"] {
-    min-width: 25%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="5"] {
-    max-width: 25%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="6"] {
-    width: 30%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="6"] {
-    left: 30%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="6"] {
-    min-width: 30%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="6"] {
-    max-width: 30%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="7"] {
-    width: 35%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="7"] {
-    left: 35%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="7"] {
-    min-width: 35%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="7"] {
-    max-width: 35%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="8"] {
-    width: 40%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="8"] {
-    left: 40%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="8"] {
-    min-width: 40%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="8"] {
-    max-width: 40%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="9"] {
-    width: 45%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="9"] {
-    left: 45%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="9"] {
-    min-width: 45%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="9"] {
-    max-width: 45%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="10"] {
-    width: 50%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="10"] {
-    left: 50%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="10"] {
-    min-width: 50%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="10"] {
-    max-width: 50%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="11"] {
-    width: 55%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="11"] {
-    left: 55%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="11"] {
-    min-width: 55%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="11"] {
-    max-width: 55%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="12"] {
-    width: 60%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="12"] {
-    left: 60%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="12"] {
-    min-width: 60%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="12"] {
-    max-width: 60%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="13"] {
-    width: 65%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="13"] {
-    left: 65%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="13"] {
-    min-width: 65%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="13"] {
-    max-width: 65%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="14"] {
-    width: 70%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="14"] {
-    left: 70%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="14"] {
-    min-width: 70%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="14"] {
-    max-width: 70%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="15"] {
-    width: 75%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="15"] {
-    left: 75%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="15"] {
-    min-width: 75%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="15"] {
-    max-width: 75%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="16"] {
-    width: 80%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="16"] {
-    left: 80%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="16"] {
-    min-width: 80%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="16"] {
-    max-width: 80%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="17"] {
-    width: 85%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="17"] {
-    left: 85%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="17"] {
-    min-width: 85%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="17"] {
-    max-width: 85%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="18"] {
-    width: 90%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="18"] {
-    left: 90%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="18"] {
-    min-width: 90%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="18"] {
-    max-width: 90%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="19"] {
-    width: 95%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-x="19"] {
-    left: 95%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-min-width="19"] {
-    min-width: 95%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-max-width="19"] {
-    max-width: 95%;
-  }
-  .grid-stack > .grid-stack-item[data-gs-width="20"] {
+  .item_image {
+    max-width: 100%;
     width: 100%;
   }
-  .grid-stack > .grid-stack-item[data-gs-x="20"] {
-    left: 100%;
+
+  .content_container {
+    padding: 0px;
   }
-  .grid-stack > .grid-stack-item[data-gs-min-width="20"] {
-    min-width: 100%;
+
+  .row {
+    padding: none;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
   }
-  .grid-stack > .grid-stack-item[data-gs-max-width="20"] {
+
+  .d-print-none {
+    display: none !important;
+  }
+
+  .col-md-6 {
     max-width: 100%;
+    padding: 0px !important;
+    flex: 0 0 100%;
   }
+
+  .grid-stack-item {
+    border: 0px solid red;
+  }
+
+  .dungeonslayer-content .grid-stack-item-content {
+    box-shadow: none;
+  }
+
+  td>img {
+    height: 18px;
+  }
+
+  *[contenteditable="true"] {
+    background-color: transparent;
+  }
+
+  div#second-grid:after,
+  div#advanced-grid:after {
+    display: none;
+  }
+
+  .show_on_hover {
+    display: none !important;
+  }
+
+  .second_content {
+    margin-top: 0px;
+  }
+
+  .nsc_notes {
+    height: 86px !important;
+  }
+
+  body {
+    max-width: 100%;
+    margin-left: 0px;
+  }
+
+  .nsc_skill .skill_edit {
+    top: 21px !important;
+  }
+
+  .nsc_skill .skill_edit,
+  .header_edit,
+  .item_title,
+  .dungeonslayer-content .table thead th {
+    font-size: 24px;
+  }
+
+  .table_steps_gesteigert,
+  .table_steps_gesamt,
+  .table_steps_half {
+    width: auto;
+    min-width: 28px;
+  }
+
+
+  .table-bordered td.woodstamp,
+  .item_text,
+  .table-bordered td .woodstamp,
+  .table-bordered td span.woodstamp,
+  .dungeonslayer-content .table-bordered td {
+    font-size: 20px;
+    line-height: 20px;
+  }
+
+  .table td {
+    padding: 3px 5px;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    height: 26px;
+  }
+
+  .back_gray,
+  .table thead th {
+    background-color: #d0d4d7 !important;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .dungeonslayer-content .skill_edit {
+    top: 7px;
+  }
+
+  .skill_edit,
+  .attrib_edit {
+    font-size: 40px;
+  }
+
+  .header_logo {
+    margin-bottom: 20px;
+    ;
+  }
+
+  small {
+    font-size: 10px;
+    line-height: 10px;
+  }
+
+  .attrib {
+    font-size: 55px;
+    line-height: 60px;
+  }
+
+  .header_edit {
+    margin-bottom: 5px;
+  }
+
+  .input_field:first-child {
+    margin-top: 10px;
+  }
+
+  .small_stuff .header_edit.text-center {
+    width: 40px;
+  }
+
+  .input_field,
+  .attrib_row {
+    margin-bottom: 30px;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="1"] {
+    top: 3.5714285714vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="2"] {
+    top: 7.1428571429vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="3"] {
+    top: 10.7142857143vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="4"] {
+    top: 14.2857142857vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="5"] {
+    top: 17.8571428571vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="6"] {
+    top: 21.4285714286vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="7"] {
+    top: 25vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="8"] {
+    top: 28.5714285714vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="9"] {
+    top: 32.1428571429vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="10"] {
+    top: 35.7142857143vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="11"] {
+    top: 39.2857142857vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="12"] {
+    top: 42.8571428571vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="13"] {
+    top: 46.4285714286vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="14"] {
+    top: 50vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="15"] {
+    top: 53.5714285714vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="16"] {
+    top: 57.1428571429vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="17"] {
+    top: 60.7142857143vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="18"] {
+    top: 64.2857142857vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="19"] {
+    top: 67.8571428571vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="20"] {
+    top: 71.4285714286vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="21"] {
+    top: 75vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="22"] {
+    top: 78.5714285714vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="23"] {
+    top: 82.1428571429vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="24"] {
+    top: 85.7142857143vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="25"] {
+    top: 89.2857142857vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="26"] {
+    top: 92.8571428571vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="27"] {
+    top: 96.4285714286vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-y="28"] {
+    top: 100vh !important;
+  }
+
+  .grid-stack>.grid-stack-item {
+    min-width: 3.5714285714%;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="1"] {
+    height: 3.5714285714vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="2"] {
+    height: 7.1428571429vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="3"] {
+    height: 10.7142857143vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="4"] {
+    height: 14.2857142857vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="5"] {
+    height: 17.8571428571vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="6"] {
+    height: 21.4285714286vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="7"] {
+    height: 25vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="8"] {
+    height: 28.5714285714vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="9"] {
+    height: 32.1428571429vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="10"] {
+    height: 35.7142857143vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="11"] {
+    height: 39.2857142857vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="12"] {
+    height: 42.8571428571vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="13"] {
+    height: 46.4285714286vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="14"] {
+    height: 50vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="15"] {
+    height: 53.5714285714vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="16"] {
+    height: 57.1428571429vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="17"] {
+    height: 60.7142857143vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="18"] {
+    height: 64.2857142857vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="19"] {
+    height: 67.8571428571vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="20"] {
+    height: 71.4285714286vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="21"] {
+    height: 75vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="22"] {
+    height: 78.5714285714vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="23"] {
+    height: 82.1428571429vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="24"] {
+    height: 85.7142857143vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="25"] {
+    height: 89.2857142857vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="26"] {
+    height: 92.8571428571vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="27"] {
+    height: 96.4285714286vh !important;
+  }
+
+  .grid-stack>.grid-stack-item[data-gs-height="28"] {
+    height: 100vh !important;
+  }
+
+}

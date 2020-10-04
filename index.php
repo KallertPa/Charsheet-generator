@@ -31,7 +31,7 @@ require('params.php');
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css" />
 
     <link rel="stylesheet" href="./assets/css/gridstack.css" />
-    <link rel="stylesheet" href="./assets/css/gridstack-extra.css" />
+    <link rel="stylesheet" href="./assets/css/gridstack-extra.css?v=<?php echo $version ?>" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
