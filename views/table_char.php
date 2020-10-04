@@ -5,7 +5,7 @@
 ?>
 
 <div id="table" class="table-editable equip_table">
-    <table class="table table-bordered table-responsive-md text-left">
+    <table class="table table-bordered text-left">
         <thead>
             <tr>
                 <th class="text-center" contenteditable="true" colspan="2">Steckbrief</th>

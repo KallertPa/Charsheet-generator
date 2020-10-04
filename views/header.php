@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-md-4 ">
+    <div class="col-sm-4 ">
         <div class="input_field">
             <h4>Spieler:</h4>
             <div class="header_edit"  contenteditable="true">
@@ -19,7 +19,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-4 p-0  header_middle">
+    <div class="col-sm-4 p-0  header_middle">
         <div class="header_logo">
             <img src="/assets/img/logo.png" />
         </div>
@@ -64,7 +64,7 @@
 
 
     </div>
-    <div class="col-md-4 ">
+    <div class="col-sm-4 ">
         <div class="input_field">
             <h4>Charakter:</h4>
             <div class="header_edit"  contenteditable="true">
@@ -87,7 +87,7 @@
 </div>
 <div class="row">
     
-    <div class="col-md-4 ">
+    <div class="col-sm-4 ">
         <div class="attrib_row clearfix">
             <div class="attrib">Körper</div><div class="attrib_edit" data-attr='kor'  contenteditable="true"></div>
         </div>
@@ -98,7 +98,7 @@
             <div class="attrib outline">Härte</div><div class="attrib_edit" data-attr="ha" contenteditable="true"></div>
         </div>
     </div>
-    <div class="col-md-4 p-0">
+    <div class="col-sm-4 p-0">
         <div class="attrib_row clearfix">
             <div class="attrib">Agilität</div><div class="attrib_edit" data-attr="agi" contenteditable="true"></div>
         </div>
@@ -109,7 +109,7 @@
             <div class="attrib outline">Geschick</div><div class="attrib_edit" data-attr="ge" contenteditable="true"></div>
         </div>
     </div>
-    <div class="col-md-4 ">
+    <div class="col-sm-4 ">
         <div class="attrib_row clearfix">
             <div class="attrib">Geist</div><div class="attrib_edit" data-attr="sk" contenteditable="true"></div>
         </div>
