@@ -1,29 +1,47 @@
 @media print {
-  .dungeonslayer-content .grid-stack-item-content {
-    border: 0px solid !important;
-  }
 
-  .grid-stack {
-    width: 100%;
-    height: calc(100vh - 2px) !important;
-    page-break-after: always
+  html, body{
+    margin: 0 !important; 
+    padding: 0 !important;
+    width:100% !important;
+    max-width: 100% !important; 
   }
-
-  .item_image {
-    max-width: 100%;
-    width: 100%;
-  }
-
+  
   .content_container {
     padding: 0px;
+    margin: 0px; 
   }
-
+  .content_container > .row:not(.d-print-none), 
+  .dungeonslayer-content,
+  .grid-stack {
+    height: 100% !important; 
+    margin: 0 !important; 
+    padding: 0 !important;
+    width:100% !important;
+    max-width: 100% !important; 
+    display: block !important; 
+  }
   .row {
     padding: none;
     margin-left: 0px !important;
     margin-right: 0px !important;
   }
-
+  
+  .content_container > .row:not(.d-print-none){
+    page-break-after: always !important; 
+    position: relative !important; 
+    height: 100%; 
+  }
+  .content_container:not(.Firefox) > .row:not(.d-print-none){
+    height: calc(100vh - 2px) !important;
+  }
+  .dungeonslayer-content .grid-stack-item-content {
+    border: 0px solid !important;
+  }
+  .item_image {
+    max-width: 100%;
+    width: 100%;
+  }
   .d-print-none {
     display: none !important;
   }
@@ -76,6 +94,11 @@
     top: 21px !important;
   }
 
+  body .table-bordered td, 
+  body .table-bordered th{
+    border: 2px solid black !important; 
+  }
+
   .nsc_skill .skill_edit,
   .header_edit,
   .item_title,
@@ -110,7 +133,8 @@
   .back_gray,
   .table thead th {
     background-color: #d0d4d7 !important;
-    -webkit-print-color-adjust: exact;
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
   }
 
   .dungeonslayer-content .skill_edit {

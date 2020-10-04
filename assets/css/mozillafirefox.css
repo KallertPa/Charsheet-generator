@@ -1,81 +1,116 @@
-.table_steps_half, 
-table td .woodstamp, 
-.table_steps_gesteigert, 
-.table_steps_gesamt{
-  float: left; 
+.table_steps_half,
+table td .woodstamp,
+.table_steps_gesteigert,
+.table_steps_gesamt {
+  float: left;
 }
 
 @media print {
   .header_logo {
     margin-bottom: 10px !important;
   }
-   .input_field{
-    margin-bottom: 10px !important; 
-  }
-   .attrib_row{
-    margin-bottom: 15px !important;
-  }
-   .header_middle {
-    margin-bottom: 15px; 
-  }
-   .grid-stack{
-    height: 100% !important; 
-    margin: 0 !important; 
-    padding: 0 !important;
-    width:100% !important;
-    max-width: 100% !important; 
-    display: block !important; 
-    position: relative; 
-    border: 1px solid white; 
-  }
-  .content_container{
-    position: absolute !important; 
-    width: 100%  !important; 
-    height: 100%  !important; 
-    border: 2px solid white; 
-  }
-   .item_text,
-   .header_edit,
-   .dungeonslayer-content .table-bordered td {
-    font-size: 8pt !important;
-    line-height: 15px !important;
-  } 
-   .table-bordered td.woodstamp,
-   .table-bordered td .woodstamp,
-   .table-bordered td span.woodstamp{
-    font-size: 10pt !important; 
-    line-height: 15px !important;
-  }
-   .header_middle .details .header_edit,
-   .nsc_skill .skill_edit,
-   .item_title,
-   .dungeonslayer-content .table thead th {
-    font-size: 11pt !important;
-    line-height: 20px !important; 
+
+  .input_field {
+    margin-bottom: 10px !important;
   }
 
- 
-   .table td {
+  .attrib_row {
+    margin-bottom: 15px !important;
+  }
+
+  .header_middle {
+    margin-bottom: 15px;
+  }
+
+  td>img {
+    height: 15px;
+  }
+
+  .outline {
+    -webkit-text-stroke: 0px black;
+    -webkit-text-fill-color: none;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000 !important;
+    color: white;
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+
+  .grid-stack {
+    height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+    position: relative;
+    border: 1px solid white;
+  }
+
+  .content_container {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    border: 2px solid white;
+  }
+
+  .item_text,
+  .header_edit,
+  .dungeonslayer-content .table-bordered td {
+    font-size: 8pt !important;
+    line-height: 15px !important;
+  }
+
+  .table-bordered td.woodstamp,
+  .table-bordered td .woodstamp,
+  .table-bordered td span.woodstamp {
+    font-size: 10pt !important;
+    line-height: 15px !important;
+  }
+
+  .header_middle .details .header_edit,
+  .nsc_skill .skill_edit,
+  .item_title,
+  .dungeonslayer-content .table thead th {
+    font-size: 17px !important;
+    line-height: 20px !important;
+  }
+
+  .item_title {
+    font-size: 15px !important;
+  }
+
+
+  .table td {
     padding: 0px 5px 0px 5px !important;
-    height: 15px !important; 
+    height: 15px !important;
     line-height: 15px !important;
     vertical-align: top;
   }
-   .table td.nsc_notes {
+
+  .table td.nsc_notes {
     height: 53px !important;
-  } 
-   .skill_edit,
-   .attrib_edit {
+  }
+
+  .skill_edit,
+  .attrib_edit {
     font-size: 25px !important;
   }
 
-   small {
+  .attrib {
+    font-size: 35px !important;
+    line-height: 40px !important;
+  }
+
+  small {
     font-size: 5.5pt !important;
     line-height: 8px !important;
   }
 
-   .attrib {
-    font-size: 35px !important;
-    line-height: 40px !important;
+
+
+  .table_steps_gesteigert,
+  .table_steps_gesamt,
+  .table_steps_half {
+    min-width: 10px !important;
   }
 }

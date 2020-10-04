@@ -6,7 +6,7 @@
 ?>
 
 
-<div class="container alert_container">
+<div class="container alert_container d-print-none">
     <div class="alert alert-success" role="alert" style="display: none;">
     <span></span>
         <a href="#" onclick="close_alerts()" class="close">
