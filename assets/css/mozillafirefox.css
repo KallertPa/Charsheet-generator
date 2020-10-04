@@ -22,14 +22,15 @@ table td .woodstamp,
     margin-bottom: 15px;
   }
 
-  td>img {
+  td > img {
     height: 15px;
   }
 
   .outline {
     -webkit-text-stroke: 0px black;
     -webkit-text-fill-color: none;
-    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000 !important;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000,
+      2px 2px 0 #000 !important;
     color: white;
     -webkit-print-color-adjust: exact !important;
     color-adjust: exact !important;
@@ -79,7 +80,6 @@ table td .woodstamp,
     font-size: 15px !important;
   }
 
-
   .table td {
     padding: 0px 5px 0px 5px !important;
     height: 15px !important;
@@ -105,9 +105,7 @@ table td .woodstamp,
     font-size: 5.5pt !important;
     line-height: 8px !important;
   }
-
-
-
+  
   .table_steps_gesteigert,
   .table_steps_gesamt,
   .table_steps_half {
