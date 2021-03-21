@@ -68,10 +68,19 @@ $(document).ready(function () {
     $('.area_toggle').on('click', function (e) {
         e.preventDefault();
         var ele = $(this).attr('data-toggle');
-        $('.' + ele).toggle(300, function () {});
         $(this).toggleClass('hide_icon');
+        $('.' + ele).toggle(300, function () {});
         if (typeof localStorage !== 'undefined') {
             localStorage.setItem("toggle_"+ele, $( this ).hasClass( "hide_icon" ));
+        }
+        if(!$(this).hasClass('hide_icon')){
+            $('.' + ele).fadeIn(300, function () {
+                var main = $(".top-items-edit"),
+                t = main.offset().top;
+                main.scrollTop($(this).offset().top - t);
+            });
+        } else {
+            $('.' + ele).fadeOut(300, function () {});
         }
     });
 });

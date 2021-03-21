@@ -47,7 +47,7 @@
     max-width: 100%;
     width: 100%;
   }
-  
+  .drag_handler, 
   .d-print-none {
     display: none !important;
   }
@@ -125,16 +125,16 @@
   .table-bordered td span.woodstamp,
   .dungeonslayer-content .table-bordered td {
     font-size: 20px;
-    line-height: 20px;
+    line-height: 19px;
   }
 
   .table td {
     padding: 3px 5px;
     padding-top: 3px !important;
     padding-bottom: 3px !important;
-    height: 26px;
+    height: 24px !important;
+    overflow: hidden; 
   }
-
   .back_gray,
   .table thead th {
     background-color: #d0d4d7 !important;

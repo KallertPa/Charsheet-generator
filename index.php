@@ -9,7 +9,7 @@
  */
 
 //version for styles and scripts 
-$version = 1.6; 
+$version = 1.7; 
 
 require('params.php'); 
 ?>

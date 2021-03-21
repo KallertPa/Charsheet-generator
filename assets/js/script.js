@@ -83,14 +83,18 @@ $(document).ready(function () {
      */
     function gridToArray(name) {
         result = $('#' + name + '.grid-stack > .grid-stack-item:visible').map(function (i, el) {
-            el = $(el);
-            var node = el.data('_gridstack_node');
+            //el = $(el);
+            //console.log(el); 
+            let node = el.gridstackNode;
+            
             return {
                 x: node.x,
                 y: node.y,
                 width: node.width,
                 height: node.height,
-                html: el.html()
+                minHeight: node.minHeight,
+                minWidth: node.minWidth,
+                html: $(el).html()
             };
         }).toArray();
         return result;
@@ -104,16 +108,15 @@ $(document).ready(function () {
      * @param array data 
      */
     function loadDataToGrid(name, data) {
-        first_grid = $('#' + name + '.grid-stack').data('gridstack');
 
-        first_grid.removeAll();
-        var items = GridStackUI.Utils.sort(data);
-        first_grid.batchUpdate();
+        grid[name].removeAll();
+        var items = GridStack.Utils.sort(data);
+        grid[name].batchUpdate();
         items.forEach(function (node) {
-            var html = $($.parseHTML('<div>' + node.html + '</div>'));
-            first_grid.addWidget(html, node);
+            var html = "<div class='grid-stack-item-content ui-draggable-handle'>"+node.html+"</div>"
+            grid[name].addWidget( html,  {width: node.width, height: node.height, x: node.x, y: node.y, minWidth: node.minWidth, minHeight: node.minHeight});
         }, this);
-        first_grid.commit();
+        grid[name].commit();
     }
     
     
@@ -184,9 +187,9 @@ $(document).ready(function () {
         var data = JSON.parse(serializedData);
         var data = JSON.parse(data);
 
-        loadDataToGrid('advanced-grid', data[0]);
-        loadDataToGrid('second-grid', data[1]);
-        loadDataToGrid('third-grid', data[2]);
+        loadDataToGrid(0, data[0]);
+        loadDataToGrid(1, data[1]);
+        loadDataToGrid(2, data[2]);
 
         localStorage.removeItem("last_saved");
         //change the autocalc value 
@@ -333,9 +336,10 @@ if (indexedDB) {
                 var page_1 = JSON.parse(request.result.page_1); 
                 var page_2 = JSON.parse(request.result.page_2); 
                 var page_3 = JSON.parse(request.result.page_3); 
-                loadDataToGrid('advanced-grid', page_1);    
-                loadDataToGrid('second-grid', page_2);    
-                loadDataToGrid('third-grid', page_3);
+
+                loadDataToGrid(0, page_1);    
+                loadDataToGrid(1, page_2);    
+                loadDataToGrid(2, page_3);
     
                 //set the last used name in storage
                 localStorage.setItem("last_saved", char_name);
