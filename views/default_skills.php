@@ -11,7 +11,9 @@ foreach($default_skills as $skill){ ?>
         data-gs-x="<?=$pos_x ?>" 
         data-gs-y="<?=$pos_y ?>"
         data-gs-width="<?=$skills_w ?>" 
-        data-gs-height="<?=$skills_h ?>">
+        data-gs-height="<?=$skills_h ?>"
+        data-gs-min-height="<?=$skills_h ?>"
+        data-gs-min-width="<?=$skills_w ?>">
         <div class="grid-stack-item-content no_padding bg-white standardd-values">
             <div class="added_item skill_item">
                 <?php if(isset($skill['img'])){ ?>

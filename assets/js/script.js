@@ -22,27 +22,30 @@ $(document).ready(function () {
      * When changing a table, 
      * add or remove rows 
      */
-    $('#third-grid, #second-grid, #advanced-grid').on('change', function (event, items) {
-        var height = $(items[0].el).find('.grid-stack-item-content').outerHeight();
-        var table_height = $(items[0].el).find('table.variable_height').outerHeight();
-        var diff = height - table_height;
+    
+    grid.forEach(function (node) {
+        node.on('change', function (event, items) {
+            var height = $(items[0].el).find('.grid-stack-item-content').outerHeight();
+            var table_height = $(items[0].el).find('table.variable_height').outerHeight();
+            var diff = height - table_height -15;
 
-        //add rows if it is higher 
-        if (diff > 0) {
-            var amount = Math.floor(diff / 17);
-            for (i = 0; i < amount; i++) {
-                const $clone = $(items[0].el).find('tbody tr').last().clone(true).removeClass('hide table-line');
-                $clone.find('td').text('');
-                $(items[0].el).find('table.variable_height').append($clone);
+            //add rows if it is higher 
+            if (diff > 0) {
+                var amount = Math.floor(diff / 17);
+                for (i = 0; i < amount; i++) {
+                    const $clone = $(items[0].el).find('tbody tr').last().clone(true).removeClass('hide table-line');
+                    $clone.find('td').text('');
+                    $(items[0].el).find('table.variable_height').append($clone);
+                }
+                //remove rows if it is smaller
+            } else if (diff < 0) {
+                var amount = Math.ceil(Math.abs(diff) / 17);
+                for (i = 0; i < amount; i++) {
+                    $(items[0].el).find('tbody tr').last().detach();
+                }
             }
-            //remove rows if it is smaller
-        } else if (diff < 0) {
-            var amount = Math.ceil(Math.abs(diff) / 17);
-            for (i = 0; i < amount; i++) {
-                $(items[0].el).find('tbody tr').last().detach();
-            }
-        }
-    });
+        });
+    }); 
 
 
     $('.newWidget').draggable({

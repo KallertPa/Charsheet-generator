@@ -48,7 +48,7 @@
 </div>
 <?php // Beute & Vermögen ?>
 <div class="col-sm-6 extra_table_elements fix_height"  style="display: none;">
-    <div class=" newWidget grid-stack-item" data-gs-width="10" data-gs-height="6">
+    <div class=" newWidget grid-stack-item" data-gs-width="10" data-gs-height="6" data-gs-min-height="4" data-gs-min-width="7">
         <div class="grid-stack-item-content ui-draggable-handle">
             <div class="area_money">
             <?php

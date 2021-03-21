@@ -2,7 +2,7 @@
 /**
  * Basic Dungeonslayer Charsheet Generator 
  * 
- * For Gridstack 0.6.0 Docs see https://github.com/gridstack/gridstack.js/tree/115c3d259c0cba3188644983d20c45eb1cf6de63/doc
+ * For Gridstack 2.2.0 Docs see https://cdn.jsdelivr.net/npm/gridstack@2.2.0/README.md
  * 
  * @package    Charsheet generator
  * @author     kallertp@gmail.com
@@ -113,7 +113,7 @@ require('params.php');
                     <?php 
                         //the header with the stats and char details ?>
                     <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide ui-draggable-disabled ui-resizable-disabled"
-                        data-gs-x="2" data-gs-y="0" data-gs-width="18" data-gs-height="11">
+                        data-gs-x="2" data-gs-y="0" data-gs-width="18"  data-gs-min-width="18" data-gs-height="11" data-gs-min-height="11">
                         <div class="grid-stack-item-content  bg-white standardd-values">
                             <?php require('views/header.php'); ?>
                         </div>
@@ -145,7 +145,7 @@ require('params.php');
                     <?php 
                         //the equipment table ?>
                     <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="11"
-                        data-gs-y="17" data-gs-width="9" data-gs-height="5">
+                        data-gs-y="17" data-gs-width="9" data-gs-min-width="6" data-gs-height="5" data-gs-min-height="5">
                         <div class="grid-stack-item-content ui-draggable-handle show-overflow">
                             <div class="added_table">
                                 <?php
@@ -211,7 +211,7 @@ require('params.php');
                                 Charakterblatt gezogen werden</li>
                             <li>Die Elemente können größer und kleiner gezogen werden. Bei Tabellen werden dann auch
                                 Zeilen hinzugefügt und entfernt</li>
-                            <li>Grau hinterlegte Felder können mit Rechtsklick bearbeitet werden, Tabellenüberschriften auch </li>
+                            <li>Grau hinterlegte Felder können bearbeitet werden, Tabellenüberschriften auch </li>
                             <li>Wenn die automatische Berechnung aktiviert ist, können in der Rüstungs- und Talenttabellen die Werte in der Spalte 'Berechnung' geändert werden, z.b mit laufen+1 oder agi-1</li>
                             <li>Zum Drucken einfach die Funktion vom Browser verwenden (Str+P)</li>
                         </ul>
@@ -235,7 +235,7 @@ require('params.php');
                             </div>
                             <div class="col-md-6 add-skill">
 
-                                <div class="text-center newWidget grid-stack-item " data-gs-width="2"
+                                <div class="text-center newWidget grid-stack-item " data-gs-width="2" data-gs-min-width="2"
                                     data-gs-height="3">
                                     <div class=" grid-stack-item-content no_padding">
                                         <div class="added_item skill_item">
@@ -247,6 +247,7 @@ require('params.php');
                                         </div>
 
                                     </div>
+                                    <div class="drag_handler ui-draggable-handle"></div>
                                 </div>
                             </div>
                         </div>
@@ -341,7 +342,7 @@ require('params.php');
                         </div>
                     </div>
                     <div class="grid-stack-item ui-draggable ui-resizable ui-resizable-autohide" data-gs-x="10"
-                        data-gs-y="0" data-gs-width="10" data-gs-height="6">
+                        data-gs-y="0" data-gs-width="10" data-gs-height="6" data-gs-min-height="4" data-gs-min-width="7">
                         <div class="grid-stack-item-content ui-draggable-handle">
                             <div class="area_money">
                                 <?php

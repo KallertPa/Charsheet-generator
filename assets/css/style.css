@@ -1,7 +1,7 @@
 /**
  * BASIC STUFF
  **/
-body {
+ body {
   width: 90%;
   margin-left: 5%;
   background-color: #8c967e;
@@ -109,14 +109,14 @@ img {
   width: 309px;
 }
 
-.ui-draggable-dragging .area_money {
+div:not(.grid-stack).ui-draggable-dragging .area_money {
   width: 309px;
   height: 180px; 
 }
 
 div#second-grid:after,
 div#advanced-grid:after {
-  top: 953px;
+  top: 956px;
   position: absolute;
   content: '';
   width: 100%;
@@ -549,9 +549,6 @@ select#load_char_list {
   position: relative;
 }
 
-.area_money .row {
-  padding: 0px 60px;
-}
 
 .area_money .row>div {
   padding: 0px 5px;
@@ -560,13 +557,27 @@ select#load_char_list {
 .area_money .content_bottom {
   position: absolute;
   bottom: 0px;
+  width: 100%;
+  text-align: center;
 }
 
 .dungeonslayer-content .area_money .skill_edit {
-  top: 24px;
+  top: calc( 50% - 12px );
   width: 100%;
   left: 0px;
   margin-left: 0px;
+}
+
+.money_item {
+  width: 79px;
+  display: inline-block;
+  position: relative;
+  max-width: 31%;
+}
+
+.money_wrapper {
+  margin: 0px auto;
+  display: inline-block;
 }
 
 /**
