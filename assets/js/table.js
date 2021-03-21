@@ -38,11 +38,16 @@ $(document).ready(function () {
     });
     $('.table-remove-column').on('click', function (e) {
         e.preventDefault();
+        
+
+        if ($tableID.find('thead th').length === 2) {
+            alert('Die Tabelle muss mindestens eine Spalte enthalten'); 
+            return false; 
+        }
         $tableID.find(' thead th').last().prev('th').detach();
         $(".table-add-container   tbody tr").each(function (index) {
             $(this).find("td").last().prev('td').detach();
         });
-
     });
 
     $tableID.on('click', '.table-remove', function (e) {

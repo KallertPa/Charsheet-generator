@@ -24,16 +24,6 @@ $(document).ready(function () {
 
 
     /**
-     * For the contenteditable
-     * should be editable with right click since left click activates the drag and drop 
-     */
-    $(document).on("contextmenu", '*[contenteditable="true"]', function (e) {
-        e.preventDefault();
-        return false;
-    });
-
-
-    /**
      * Sticky Sidebar 
      **/
     if (($(document).scrollTop() > 275)) {

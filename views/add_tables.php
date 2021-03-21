@@ -9,11 +9,11 @@
         <div class=" grid-stack-item-content">
             <div class="added_table">
             <?php 
-                $table_header = ['Waffen', 'WB', 'Gesamt', 'INI', 'GA', 'Besonderes'];
+                $table_header = ['Hier', 'klicken', 'um', 'Text', 'zu', 'ändern'];
                 $table_row_count = 8;  
                 $$table_header_width = array(); 
                 $table_default = array(); 
-                $table_default[0] = ['Waffenlos', '+0', '', '', '+5']; 
+                $table_default[0] = ['', '', '', '', '']; 
 
                 require('views/default_table.php'); 
             ?>

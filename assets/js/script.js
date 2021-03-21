@@ -58,19 +58,19 @@ $(document).ready(function () {
                 return false;
             });
         }
-    }).click(function () {
-        $(this).draggable({
-            disabled: false
-        });
-    }).dblclick(function () {
-        $(this).draggable({
-            disabled: true
-        });
-    }).bind("contextmenu", function (e) {
-        e.preventDefault();
     });
 
 
+
+    /**
+     * For the contenteditable
+     * should be editable with right click since left click activates the drag and drop 
+     
+    $(document).on("contextmenu", '*[contenteditable="true"]', function (e) {
+        e.preventDefault();
+        return false;
+    });
+*/
 
     /**
      * Get the grid and convert it to an array
