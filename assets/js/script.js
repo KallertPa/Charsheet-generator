@@ -3,20 +3,21 @@ $(document).ready(function () {
     /**
      * Initiate the grid 
      */
-    var options = {
+    $( ".ui-draggable" ).append( "<div class='drag_handler'></div>" );
+
+    let grid = GridStack.initAll( {
         removable: '#trash',
         removeTimeout: 100,
         acceptWidgets: true,
+        column:20,
+        disableOneColumnMode: true,
         verticalMargin: 0,
         cellHeight: 'auto',
-        float: true
-    };
-
-    $('#advanced-grid').gridstack(options);
-
-    $('#second-grid').gridstack(options);
-    $('#third-grid').gridstack(options);
-
+        float: true, 
+        draggable: {
+            handle: '.drag_handler'
+        }
+    });
     /**
      * When changing a table, 
      * add or remove rows 
@@ -49,6 +50,7 @@ $(document).ready(function () {
         scroll: false,
         appendTo: 'body',
         helper: 'clone',
+        handle: '.drag_handler',
         stop: function (event, GridStackUI) {
             if (window.automatic_calculation) {
                 calculateSkills();

@@ -2,7 +2,7 @@ $(document).ready(function () {
 
 
     //enable bootstrap tooltips 
-    $('[data-toggle="tooltip"]').tooltip()
+   // $('[data-toggle="tooltip"]').tooltip();
 
     /**
      * Changing the Skill in the edit sidebar 

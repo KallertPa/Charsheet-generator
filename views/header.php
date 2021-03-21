@@ -89,7 +89,7 @@
     
     <div class="col-sm-4 ">
         <div class="attrib_row clearfix">
-            <div class="attrib">Körper</div><div class="attrib_edit" data-attr='kor'  contenteditable="true"></div>
+            <div class="attrib">Körper</div><div class="attrib_edit bold" data-attr='kor'  contenteditable="true"></div>
         </div>
         <div class="attrib_row clearfix">
             <div class="attrib outline">Stärke</div><div class="attrib_edit" data-attr="st" contenteditable="true"></div>
@@ -100,7 +100,7 @@
     </div>
     <div class="col-sm-4 p-0">
         <div class="attrib_row clearfix">
-            <div class="attrib">Agilität</div><div class="attrib_edit" data-attr="agi" contenteditable="true"></div>
+            <div class="attrib">Agilität</div><div class="attrib_edit bold" data-attr="agi" contenteditable="true"></div>
         </div>
         <div class="attrib_row clearfix">
             <div class="attrib outline">Bewegung</div><div class="attrib_edit"  data-attr="be" contenteditable="true"></div>
@@ -111,7 +111,7 @@
     </div>
     <div class="col-sm-4 ">
         <div class="attrib_row clearfix">
-            <div class="attrib">Geist</div><div class="attrib_edit" data-attr="sk" contenteditable="true"></div>
+            <div class="attrib">Geist</div><div class="attrib_edit bold" data-attr="sk" contenteditable="true"></div>
         </div>
         <div class="attrib_row clearfix">
             <div class="attrib outline">Verstand</div><div class="attrib_edit" data-attr="ve"  contenteditable="true"></div>

@@ -10,6 +10,8 @@
             </div>
 
         </div>
+        
+        <div class="drag_handler ui-draggable-handle"></div>
     </div>
 </div>
 <?php // Character Details table?>
@@ -21,6 +23,8 @@
 
             </div>
         </div>
+        
+        <div class="drag_handler ui-draggable-handle"></div>
     </div>
 </div>
 <?php // Lifebar ?>
@@ -29,6 +33,8 @@
         <div class="grid-stack-item-content no_padding bg-white text-center lifebar">
             <img src="./assets/img/lifebar.png" />
         </div>
+        
+        <div class="drag_handler ui-draggable-handle"></div>
     </div>
 </div>
 <?php // Big Lifebar ?>
@@ -37,6 +43,7 @@
         <div class="grid-stack-item-content no_padding bg-white text-center lifebar">
             <img src="./assets/img/lifebar_big.png" />
         </div>
+        <div class="drag_handler ui-draggable-handle"></div>
     </div>
 </div>
 <?php // Beute & Vermögen ?>
@@ -49,6 +56,7 @@
             ?>
             </div>
         </div>
+        <div class="drag_handler ui-draggable-handle"></div>
     </div>
 </div>
 <?php // NSC-Begleiter ?>
@@ -60,6 +68,7 @@
 
             </div>
         </div>
+        <div class="drag_handler ui-draggable-handle"></div>
     </div>
 </div>
 <?php // Zauber-Liste ?>
@@ -80,6 +89,7 @@
             ?>
             </div>
         </div>
+        <div class="drag_handler ui-draggable-handle"></div>
     </div>
 </div>
 <?php // LP-Verwaltung ?>
@@ -92,5 +102,6 @@
             ?>
             </div>
         </div>
+        <div class="drag_handler ui-draggable-handle"></div>
     </div>
 </div>

@@ -19,6 +19,8 @@
             ?>
             </div>
         </div>
+        
+        <div class="drag_handler ui-draggable-handle"></div>
     </div>
 </div>
 
